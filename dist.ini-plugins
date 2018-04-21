@@ -1,0 +1,38 @@
+name = Serge-Sync-Plugin-TranslationService-[% api_name %]
+author  = Dragos Varovici <dvarovici.work@gmail.com>
+license = Perl_5
+copyright_holder = Dragos Varovici
+copyright_year   = 2018
+main_module = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
+
+[VersionFromModule]
+
+[GatherDir]
+root = lib/Serge/Sync/Plugin/TranslationService/[% api_name %]
+prefix = lib/Serge/Sync/Plugin/TranslationService/[% api_name %]
+
+[GatherFile]
+filename = [% api_name %].pm
+root = lib/Serge/Sync/Plugin/TranslationService
+prefix = lib/Serge/Sync/Plugin/TranslationService
+
+[MakeMaker]
+
+[Test::Compile]
+
+[Prereqs]
+Serge = 1.3.2
+
+[MetaYAML]
+[MetaJSON]
+
+[MetaResources]
+repository.web = https://github.com/dragosv/serge-plugins
+repository.url = https://github.com/dragosv/serge-plugins.git
+repository.type = git
+bugtracker.web = https://github.com/dragosv/serge-plugins/issues
+
+[License]
+[Manifest]
+
+
