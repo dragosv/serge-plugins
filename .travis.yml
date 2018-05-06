@@ -6,7 +6,10 @@ perl:
   - "5.22"
   - "5.18"
   - "5.16"
-  - "5.10"
 sudo: false
 before_install:
-  - eval $(curl https://travis-perl.github.io/init) --auto
+  - cpanm Carton
+install:
+  - carton install
+script:
+  - carton exec build-bin/dzil-plugins.pl test

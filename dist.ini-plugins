@@ -8,17 +8,19 @@ main_module = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
 [VersionFromModule]
 
 [GatherDir]
-root = lib/Serge/Sync/Plugin/TranslationService/[% api_name %]
-prefix = lib/Serge/Sync/Plugin/TranslationService/[% api_name %]
+root = t/[% api_name %]
+prefix = t
 
 [GatherFile]
-filename = [% api_name %].pm
-root = lib/Serge/Sync/Plugin/TranslationService
-prefix = lib/Serge/Sync/Plugin/TranslationService
+filename = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
+filename = .perlcriticrc
 
 [MakeMaker]
 
 [Test::Compile]
+
+[Test::Perl::Critic]
+critic_config = .perlcriticrc
 
 [Prereqs]
 Serge = 1.3.2
@@ -34,5 +36,9 @@ bugtracker.web = https://github.com/dragosv/serge-plugins/issues
 
 [License]
 [Manifest]
+
+[TestRelease]
+[ConfirmRelease]
+[UploadToCPAN]
 
 

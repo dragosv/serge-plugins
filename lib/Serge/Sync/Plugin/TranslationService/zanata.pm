@@ -2,13 +2,13 @@
 
 package Serge::Sync::Plugin::TranslationService::zanata;
 
-our $VERSION = '0.9';
-
 use parent Serge::Sync::Plugin::Base::TranslationService, Serge::Interface::SysCmdRunner;
 
 use strict;
 
 use Serge::Util qw(subst_macros);
+
+our $VERSION = '0.9';
 
 sub name {
     return 'Zanata translation server (http://zanata.org/) synchronization plugin';

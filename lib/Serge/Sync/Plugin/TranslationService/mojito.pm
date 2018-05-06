@@ -2,13 +2,13 @@
 
 package Serge::Sync::Plugin::TranslationService::mojito;
 
-our $VERSION = '0.9';
-
 use parent Serge::Sync::Plugin::Base::TranslationService, Serge::Interface::SysCmdRunner;
 
 use strict;
 
 use Serge::Util qw(subst_macros culture_from_lang);
+
+our $VERSION = '0.9';
 
 sub name {
     return 'Mojito translation server (http://www.mojito.global/) synchronization plugin';
