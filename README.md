@@ -1,6 +1,8 @@
 Serge Translation Services Plugins
 ============
 
+[![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![build status](https://travis-ci.org/dragosv/serge-plugins.svg?branch=master)](https://travis-ci.org/dragosv/serge-plugins)
 
 
