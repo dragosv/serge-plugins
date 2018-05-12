@@ -1,15 +1,20 @@
-Serge Translation Services Plugins
+Serge Plugins
 ============
 
-[![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![Build Status](https://travis-ci.org/dragosv/serge-plugins.svg?branch=master)](https://travis-ci.org/dragosv/serge-plugins)
+[![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License: Perl](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://dev.perl.org/licenses/)
 
-[![build status](https://travis-ci.org/dragosv/serge-plugins.svg?branch=master)](https://travis-ci.org/dragosv/serge-plugins)
+Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continous Localization) and various Translation Software (Open Source and Paid)
 
+[Mojito](http://www.mojito.global/) [![Mojito](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-mojito.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-mojito)
+
+[Zanata](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-zanata)
+ 	
 
 Installation
 ============
 
-If you want to install and use the plugins then just install it via cpan, cpanm, carton or the likes. If you want to contribute code: read on
+If you want to install and use the plugins then just install it via cpanm. 
 
 ```
 cpanm Serge::Sync::Plugin::TranslationService::plugin
@@ -57,8 +62,6 @@ Packaging
 ============
 
 Packaging is managed with Dist::Zilla.
-
-```
 
 
 
