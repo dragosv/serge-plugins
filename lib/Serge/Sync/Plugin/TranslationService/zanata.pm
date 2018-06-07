@@ -25,17 +25,19 @@ sub init {
         # Project configuration file, eg zanata.xml
         project_config => 'STRING',
         # User configuration, eg /home/user/.config/zanata.ini
-        user_config => 'STRING',
+        user_config    => 'STRING',
         # Type of push to perform on the server:
         #   source  pushes source documents only
         #   both (default) pushes both source and translation documents
-        push_type => 'STRING',
+        push_type      => 'STRING',
         # The base directory for storing zanata cache files. Default is current directory.
-        cache_dir => 'STRING',
+        cache_dir      => 'STRING',
         # Whether to use an Entity cache when fetching documents.
-        use_cache => 'BOOLEAN',
+        use_cache      => 'BOOLEAN',
         # Whether to purge the cache before performing the pull operation
-        purge_cache => 'BOOLEAN'
+        purge_cache    => 'BOOLEAN',
+        # File types to locate and transmit to the server when using project type 'file'
+        file_types     => 'ARRAY'
     });
 }
 
@@ -50,6 +52,7 @@ sub validate_data {
     $self->{data}->{cache_dir} = subst_macros($self->{data}->{cache_dir});
     $self->{data}->{use_cache} = subst_macros($self->{data}->{use_cache});
     $self->{data}->{purge_cache} = subst_macros($self->{data}->{purge_cache});
+    $self->{data}->{file_types} = subst_macros($self->{data}->{file_types});
 
     die "'project_config' not defined" unless defined $self->{data}->{project_config};
     die "'project_config', which is set to '$self->{data}->{project_config}', does not point to a valid file.\n" unless -f $self->{data}->{project_config};
@@ -137,7 +140,23 @@ sub to_boolean {
 sub push_ts {
     my ($self, $langs) = @_;
 
-    $self->run_zanata_cli("push --push-type $self->{data}->{push_type}", $langs);
+    my $action = "push --push-type $self->{data}->{push_type}";
+
+    if (defined $self->{data}->{file_types}) {
+        my $file_types = '';
+
+        foreach my $file_type (sort @$self->{data}->{file_types}) {
+            if ($file_types ne '') {
+                $file_types = $file_types.','
+            }
+
+            $file_types .= $file_type;
+        }
+
+        $action .= ' --file-types '.$file_types;
+    }
+
+    $self->run_zanata_cli($action, $langs);
 }
 
 1;
