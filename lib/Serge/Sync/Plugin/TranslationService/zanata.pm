@@ -7,8 +7,9 @@ use parent Serge::Sync::Plugin::Base::TranslationService, Serge::Interface::SysC
 use strict;
 
 use Serge::Util qw(subst_macros);
+use version;
 
-our $VERSION = '0.10';
+our $VERSION = qv('0.901.0');
 
 sub name {
     return 'Zanata translation server (http://zanata.org/) synchronization plugin';
@@ -143,17 +144,11 @@ sub push_ts {
     my $action = "push --push-type $self->{data}->{push_type}";
 
     if (defined $self->{data}->{file_types}) {
-        my $file_types = '';
+        my $file_types = $self->{data}->{file_types};
 
-        foreach my $file_type (sort @$self->{data}->{file_types}) {
-            if ($file_types ne '') {
-                $file_types = $file_types.','
-            }
+        my $joined_file_types = join(',', @$file_types);
 
-            $file_types .= $file_type;
-        }
-
-        $action .= ' --file-types '.$file_types;
+        $action .= ' --file-types '.$joined_file_types;
     }
 
     $self->run_zanata_cli($action, $langs);
