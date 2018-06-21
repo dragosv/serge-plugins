@@ -10,6 +10,8 @@ Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Sour
 
 [Zanata](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-zanata)
  	
+[PhraseApp](https://phraseapp.com/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phraseapp.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-phraseapp)
+
 
 Installation
 ============
