@@ -9,7 +9,7 @@ use strict;
 use Serge::Util qw(subst_macros culture_from_lang);
 use version;
 
-our $VERSION = qv('0.901.0');
+our $VERSION = qv('0.901.1');
 
 sub name {
     return 'Mojito translation server (http://www.mojito.global/) synchronization plugin';
@@ -35,7 +35,7 @@ sub init {
         status_pull            => 'STRING',
         destination_locales    => 'ARRAY',
         # JAVA_HOME environment variable
-        java_home              => 'STRING'
+        java_home              => 'STRING',
     });
 }
 
@@ -54,6 +54,7 @@ sub validate_data {
     $self->{data}->{file_type} = subst_macros($self->{data}->{file_type});
     $self->{data}->{status_equal_target} = subst_macros($self->{data}->{status_equal_target});
     $self->{data}->{status_pull} = subst_macros($self->{data}->{status_pull});
+    $self->{data}->{destination_locales} = subst_macros($self->{data}->{destination_locales});
     $self->{data}->{java_home} = subst_macros($self->{data}->{java_home});
 
     die "'project_id' not defined" unless defined $self->{data}->{project_id};
@@ -77,7 +78,7 @@ sub validate_data {
     $self->{data}->{inheritance_mode} = 'REMOVE_UNTRANSLATED' unless defined $self->{data}->{inheritance_mode};
     $self->{data}->{status_pull} = 'ACCEPTED' unless defined $self->{data}->{status_pull};
 
-    if (!exists $self->{destination_locales} or scalar(@{$self->{destination_locales}}) == 0) {
+    if (!exists $self->{data}->{destination_locales} or scalar(@{$self->{data}->{destination_locales}}) == 0) {
         die "the list of destination languages is empty";
     }
 }
@@ -162,7 +163,7 @@ sub get_langs {
     my ($self, $langs) = @_;
 
     if (!$langs) {
-        $langs = @{$self->{destination_locales}};
+        $langs = $self->{data}->{destination_locales};
     }
 
     return $langs;
