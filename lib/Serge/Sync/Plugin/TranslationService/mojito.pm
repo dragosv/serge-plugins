@@ -6,10 +6,10 @@ use parent Serge::Sync::Plugin::Base::TranslationService, Serge::Interface::SysC
 
 use strict;
 
-use Serge::Util qw(subst_macros culture_from_lang);
+use Serge::Util qw(subst_macros culture_from_lang locale_from_lang);
 use version;
 
-our $VERSION = qv('0.901.1');
+our $VERSION = qv('0.901.2');
 
 sub name {
     return 'Mojito translation server (http://www.mojito.global/) synchronization plugin';
