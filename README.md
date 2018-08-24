@@ -6,12 +6,10 @@ Serge Plugins
 
 Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continous Localization) and various Translation Software (Open Source and Paid)
 
+[Crowdin](https://crowdin.com/) [![Crowdin](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-crowdin.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-crowdin)
 [Mojito](http://www.mojito.global/) [![Mojito](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-mojito.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-mojito)
-
+[PhraseApp](https://phraseapp.com/) [![PhraseApp](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phraseapp.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-phraseapp)
 [Zanata](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-zanata)
- 	
-[PhraseApp](https://phraseapp.com/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phraseapp.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-phraseapp)
-
 
 Installation
 ============
