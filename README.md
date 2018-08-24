@@ -19,7 +19,7 @@ Installation
 If you want to install and use the plugins then just install it via cpanm. 
 
 ```
-cpanm Serge::Sync::Plugin::TranslationService::plugin
+cpanm install Serge::Sync::Plugin::TranslationService::plugin
 
 ```
 
@@ -38,6 +38,7 @@ With carton you can install all the dependencies needed in a local environment, 
 affecting the system libraries. The cpanfile is used to track the dependencies needed.
 
 ```
+cpanm install Carton
 carton install
 ```
 
