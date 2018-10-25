@@ -2,6 +2,7 @@ Serge Plugins
 ============
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![Build Status](https://travis-ci.org/dragosv/serge-plugins.svg?branch=master)](https://travis-ci.org/dragosv/serge-plugins)
+[![Build status](https://ci.appveyor.com/api/projects/status/tb6j1owidqvdfx90/branch/master?svg=true)](https://ci.appveyor.com/project/dragosv/serge-plugins/branch/master)
 [![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License: Perl](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://dev.perl.org/licenses/)
 
 Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continous Localization) and various Translation Software (Open Source and Commercial)
