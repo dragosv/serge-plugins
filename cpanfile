@@ -22,4 +22,6 @@ on 'test' => sub {
   requires 'Test::Exception';
   requires 'Test::Warnings';
   requires 'Class::Unload';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
 };

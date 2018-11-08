@@ -14,5 +14,10 @@ before_install:
 install:
   - carton install
 script:
-  - make build
-  - make test
+  - carton exec cover -delete
+  - carton exec perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
+  - carton exec perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
+  - carton exec perl build-bin/dzil-plugins.pl build
+  - carton exec perl build-bin/dzil-plugins.pl test
+after_success:
+  - cover -report codecov

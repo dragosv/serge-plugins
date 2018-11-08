@@ -27,5 +27,13 @@ install:
 build_script:
   -  perl build-bin/dzil-plugins.pl build
 
+before_test:
+  - cover -delete
+
 test_script:
-  -  perl build-bin/dzil-plugins.pl test
+  - perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
+  - perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
+  - perl build-bin/dzil-plugins.pl test
+
+after_test:
+  - cover -report codecov
