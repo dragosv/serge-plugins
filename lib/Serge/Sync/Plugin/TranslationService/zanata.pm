@@ -25,21 +25,30 @@ sub init {
 
     $self->merge_schema({
         # Project configuration file, eg zanata.xml
-        project_config => 'STRING',
+        project_config   => 'STRING',
         # User configuration, eg /home/user/.config/zanata.ini
-        user_config    => 'STRING',
+        user_config      => 'STRING',
         # Type of push to perform on the server:
         #   'source' pushes source documents only
         #   'both' (default) pushes both source and translation documents
-        push_type      => 'STRING',
+        push_type        => 'STRING',
         # The base directory for storing zanata cache files. Default is current directory.
-        cache_dir      => 'STRING',
+        cache_dir        => 'STRING',
         # Whether to use an Entity cache when fetching documents.
-        use_cache      => 'BOOLEAN',
+        use_cache        => 'BOOLEAN',
         # Whether to purge the cache before performing the pull operation
-        purge_cache    => 'BOOLEAN',
+        purge_cache      => 'BOOLEAN',
         # File types to locate and transmit to the server when using project type 'file'
-        file_types     => 'ARRAY'
+        file_types       => 'ARRAY',
+
+        # (BOOLEAN) [OPTIONAL] Whether to enable debug logging. Default is false.
+        debug            => 'BOOLEAN',
+
+        # (BOOLEAN) [OPTIONAL] Whether to output full execution error messages (stacktraces). Default is false.
+        errors           => 'BOOLEAN',
+
+        # (BOOLEAN) [OPTIONAL] Whether verification of SSL certificates should be disabled
+        disable_ssl_cert => 'BOOLEAN'
     });
 }
 
@@ -56,6 +65,9 @@ sub validate_data {
     $self->{data}->{purge_cache} = subst_macros($self->{data}->{purge_cache});
     $self->{data}->{file_types} = subst_macros($self->{data}->{file_types});
     $self->{data}->{java_home} = subst_macros($self->{data}->{java_home});
+    $self->{data}->{debug} = subst_macros($self->{data}->{debug});
+    $self->{data}->{errors} = subst_macros($self->{data}->{errors});
+    $self->{data}->{disable_ssl_cert} = subst_macros($self->{data}->{disable_ssl_cert});
 
     die "'project_config' not defined" unless defined $self->{data}->{project_config};
     die "'project_config', which is set to '$self->{data}->{project_config}', does not point to a valid file.\n" unless -f $self->{data}->{project_config};
@@ -94,6 +106,18 @@ sub run_zanata_cli {
         my $locales_as_string = join(',', @locales);
 
         $command .= ' --locales '.$locales_as_string;
+    }
+
+    if (defined $self->{data}->{debug} && $self->{data}->{debug}) {
+        $command .= ' --debug';
+    }
+
+    if (defined $self->{data}->{errors} && $self->{data}->{errors}) {
+        $command .= ' --errors';
+    }
+
+    if (defined $self->{data}->{disable_ssl_cert} && $self->{data}->{disable_ssl_cert}) {
+        $command .= ' --disable-ssl-cert';
     }
 
     $command = 'zanata-cli '.$command;
