@@ -1,4 +1,5 @@
 # ABSTRACT: Serge Zanata translation server (http://zanata.org/) synchronization plugin
+#           Tested with zanata-cli v4.6+
 
 package Serge::Sync::Plugin::TranslationService::zanata;
 
@@ -28,8 +29,8 @@ sub init {
         # User configuration, eg /home/user/.config/zanata.ini
         user_config    => 'STRING',
         # Type of push to perform on the server:
-        #   source  pushes source documents only
-        #   both (default) pushes both source and translation documents
+        #   'source' pushes source documents only
+        #   'both' (default) pushes both source and translation documents
         push_type      => 'STRING',
         # The base directory for storing zanata cache files. Default is current directory.
         cache_dir      => 'STRING',
@@ -118,25 +119,15 @@ sub pull_ts {
         $action .= ' --cache-dir '.$self->{data}->{cache_dir};
     }
 
-    if (defined $self->{data}->{use_cache}) {
-        $action .= ' --use-cache '.$self->to_boolean($self->{data}->{use_cache});
+    if (defined $self->{data}->{use_cache} && $self->{data}->{use_cache}) {
+        $action .= ' --use-cache';
     }
 
-    if (defined $self->{data}->{purge_cache}) {
-        $action .= ' --purge-cache '.$self->to_boolean($self->{data}->{purge_cache});
+    if (defined $self->{data}->{purge_cache} && $self->{data}->{purge_cache}) {
+        $action .= ' --purge-cache';
     }
 
     return $self->run_zanata_cli($action, $langs);
-}
-
-sub to_boolean {
-    my ($self, $boolean) = @_;
-
-    if ($boolean) {
-        return 'true';
-    }
-
-    return 'false';
 }
 
 sub push_ts {
