@@ -63,7 +63,6 @@ sub validate_data {
     $self->{data}->{use_cache} = subst_macros($self->{data}->{use_cache});
     $self->{data}->{purge_cache} = subst_macros($self->{data}->{purge_cache});
     $self->{data}->{file_types} = subst_macros($self->{data}->{file_types});
-    $self->{data}->{java_home} = subst_macros($self->{data}->{java_home});
     $self->{data}->{debug} = subst_macros($self->{data}->{debug});
     $self->{data}->{errors} = subst_macros($self->{data}->{errors});
     $self->{data}->{disable_ssl_cert} = subst_macros($self->{data}->{disable_ssl_cert});

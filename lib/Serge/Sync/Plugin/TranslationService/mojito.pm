@@ -53,7 +53,6 @@ sub validate_data {
     $self->{data}->{status_equal_target} = subst_macros($self->{data}->{status_equal_target});
     $self->{data}->{status_pull} = subst_macros($self->{data}->{status_pull});
     $self->{data}->{destination_locales} = subst_macros($self->{data}->{destination_locales});
-    $self->{data}->{java_home} = subst_macros($self->{data}->{java_home});
 
     die "'project_id' not defined" unless defined $self->{data}->{project_id};
 
