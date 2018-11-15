@@ -8,7 +8,7 @@ use warnings;
 # script or assign them to the environment variable SERGE_PLUGINS_TESTS as a
 # comma-separated list.  The following two examples are equivalent:
 #
-# perl t/enigne.t mojito zanata
+# perl t/plugins.t mojito zanata
 # SERGE_PLUGINS_TESTS=mojito,zanata prove t/engine.t
 
 BEGIN {
@@ -18,6 +18,7 @@ BEGIN {
     map { unshift(@INC, catfile(dirname(abs_path(__FILE__)), $_)) } qw(lib ../lib);
 }
 
+use File::Copy::Recursive qw/dircopy/;
 use File::Find qw(find);
 use File::Path;
 use File::Spec::Functions qw(catfile);
@@ -27,10 +28,13 @@ use Serge::Interface::SysCmdRunner;
 use Serge::Config;
 use Test::PluginHost;
 use Test::SysCmdRunner;
+use Test::Diff;
+use Test::PluginsConfig;
 
 $| = 1; # disable output buffering
 
 my $sys_cmd_runner;
+my $init_commands;
 
 # as the real command line interfaces cannot be invoked,
 # we override the `run_cmd` function;
@@ -62,11 +66,58 @@ sub output_errors {
     close(OUT);
 }
 
+sub delete_directory {
+    my ($path, $ignore_errors) = @_;
+
+    my $err;
+
+    if (-e $path) {
+        rmtree($path, { error => \$err });
+        if (@$err && !$ignore_errors) {
+            my $err_text = '';
+
+            map {
+                foreach my $key (keys %$_) {
+                    $err_text .= $key.': '.$_->{$key}."\n";
+                }
+            } @$err;
+
+            BAIL_OUT("Directory '".$path."' couldn't be removed\n$err_text");
+        }
+    }
+}
+
+sub test_ts {
+    my ($ts, $plugin, $cfg, $name, $command) = @_;
+
+    my $ok = 1;
+
+    $sys_cmd_runner = Test::SysCmdRunner->new($name);
+
+    $sys_cmd_runner->{init} = $init_commands;
+
+    $sys_cmd_runner->start();
+
+    my $command_result = 1;
+
+    eval {
+        $command_result = $ts->$command();
+    };
+
+    output_errors($@, $cfg->errors_path, "$name.txt", $plugin) if $@;
+
+    $sys_cmd_runner->stop();
+
+    if (not $@) {
+        $ok &= ok($command_result eq 0, "'$name'") unless $init_commands;
+    }
+
+    return $ok;
+}
+
 my $this_dir = dirname(abs_path(__FILE__));
 
 my @confs;
-
-my ($init_commands);
 
 GetOptions("init" => \$init_commands);
 
@@ -92,12 +143,17 @@ my $plugin_host = Test::PluginHost->new();
 for my $config_file (@confs) {
 
     subtest "Test config: $config_file" => sub {
-        my $cfg = Serge::Config->new($config_file);
+        my $cfg = Test::PluginsConfig->new($config_file);
 
         SKIP: {
             my $ok = ok(defined $cfg, 'Config file read');
 
             $cfg->chdir;
+
+            delete_directory($cfg->errors_path);
+            if ($init_commands) {
+                delete_directory($cfg->reference_errors_path);
+            }
 
             my $ts;
             my $plugin = '';
@@ -111,45 +167,26 @@ for my $config_file (@confs) {
                 );
             };
 
-            output_errors($@, './errors/', 'new.txt', $plugin) if $@;
+            output_errors($@, $cfg->errors_path, 'new.txt', $plugin) if $@;
 
-            if ($ts) {
-                $sys_cmd_runner = Test::SysCmdRunner->new('pull');
+            if (not $@ and $ts) {
+                $ok &= test_ts($ts, $plugin, $cfg, 'pull', 'pull_ts');
 
-                $sys_cmd_runner->{init} = $init_commands;
-
-                $sys_cmd_runner->start();
-
-                my $pull_result = 1;
-
-                eval {
-                    $pull_result = $ts->pull_ts();
-                };
-
-                output_errors($@, './errors/', 'pull.txt', $plugin) if $@;
-
-                $sys_cmd_runner->stop();
-
-                $ok = ok($pull_result eq 0, "'pull'");
-
-                $sys_cmd_runner = Test::SysCmdRunner->new('push');
-
-                $sys_cmd_runner->{init} = $init_commands;
-
-                $sys_cmd_runner->start();
-
-                my $push_result = 1;
-
-                eval {
-                    $push_result = $ts->push_ts();
-                };
-
-                output_errors($@, './errors/', 'push.txt', $plugin) if $@;
-
-                $sys_cmd_runner->stop();
-
-                $ok = ok($push_result eq 0, "'push'") and $ok;
+                $ok &= test_ts($ts, $plugin, $cfg, 'push', 'push_ts');
             }
+
+            if ($init_commands) {
+                ok(dircopy($cfg->errors_path, $cfg->reference_errors_path), "Initialized ".$cfg->reference_errors_path) if -e $cfg->errors_path;
+            }
+            else {
+                $ok &= dir_diff($cfg->errors_path, $cfg->reference_errors_path, { base_dir => $cfg->{base_dir} }) if -e $cfg->reference_errors_path;
+            }
+
+            # Under Windows, deleting just created files may fail with 'Permission denied'
+            # for an unknown reason, and only closing the process will release the file handles.
+            # Since we will be removing test output at the beginning of each test anyway,
+            # don't bail out this time if some files failed to be removed
+            delete_directory($cfg->errors_path, 1) if $ok;
         }
     }
 }
