@@ -1,5 +1,4 @@
 use strict;
-use warnings;
 
 # HOW TO USE THIS TEST
 #
@@ -116,6 +115,7 @@ sub test_ts {
 }
 
 my $this_dir = dirname(abs_path(__FILE__));
+my $tests_dir = catfile($this_dir, 'data', 'plugins');
 
 my @confs;
 
@@ -129,12 +129,12 @@ if (my $env_dirs = $ENV{SERGE_PLUGINS_TESTS}) {
 unless (@dirs) {
     find(sub {
         push @confs, $File::Find::name if(-f $_ && /\.serge$/ && $_ ne 'common.serge');
-    }, $this_dir);
+    }, $tests_dir);
 } else {
     for my $dir (@dirs) {
         find(sub {
             push @confs, $File::Find::name if(-f $_ && /\.serge$/ && $_ ne 'common.serge');
-        }, catfile($this_dir, "data/plugins", $dir));
+        }, catfile($tests_dir, $dir));
     }
 }
 
