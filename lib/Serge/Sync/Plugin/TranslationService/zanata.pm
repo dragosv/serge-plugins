@@ -47,8 +47,11 @@ sub init {
         # (BOOLEAN) [OPTIONAL] Whether to output full execution error messages (stacktraces). Default is false.
         errors           => 'BOOLEAN',
 
-        # (BOOLEAN) [OPTIONAL] Whether verification of SSL certificates should be disabled
-        disable_ssl_cert => 'BOOLEAN'
+        # (BOOLEAN) [OPTIONAL] Whether verification of SSL certificates should be disabled. Default is false.
+        disable_ssl_cert => 'BOOLEAN',
+
+        # (BOOLEAN) [OPTIONAL] Dry run: don't change any data, on the server or on the filesystem. Default is false.
+        dry_run => 'BOOLEAN'
     });
 }
 
@@ -68,6 +71,7 @@ sub validate_data {
     $self->{data}->{debug} = subst_macros($self->{data}->{debug});
     $self->{data}->{errors} = subst_macros($self->{data}->{errors});
     $self->{data}->{disable_ssl_cert} = subst_macros($self->{data}->{disable_ssl_cert});
+    $self->{data}->{dry_run} = subst_macros($self->{data}->{dry_run});
 
     die "'project_config' not defined" unless defined $self->{data}->{project_config};
     die "'project_config', which is set to '$self->{data}->{project_config}', does not point to a valid file.\n" unless -f $self->{data}->{project_config};
@@ -118,6 +122,10 @@ sub run_zanata_cli {
 
     if (defined $self->{data}->{disable_ssl_cert} && $self->{data}->{disable_ssl_cert}) {
         $command .= ' --disable-ssl-cert';
+    }
+
+    if (defined $self->{data}->{dry_run} && $self->{data}->{dry_run}) {
+        $command .= ' --dry-run';
     }
 
     $command = 'zanata-cli '.$command;
