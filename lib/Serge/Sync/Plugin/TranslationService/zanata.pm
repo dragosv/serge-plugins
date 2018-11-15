@@ -10,7 +10,7 @@ use strict;
 use Serge::Util qw(subst_macros);
 use version;
 
-our $VERSION = qv('0.903.0');
+our $VERSION = qv('0.904.0');
 
 sub name {
     return 'Zanata translation server (http://zanata.org/) synchronization plugin';
@@ -40,18 +40,14 @@ sub init {
         purge_cache      => 'BOOLEAN',
         # File types to locate and transmit to the server when using project type 'file'
         file_types       => 'ARRAY',
-
-        # (BOOLEAN) [OPTIONAL] Whether to enable debug logging. Default is false.
+        # Whether to enable debug logging. Default is false.
         debug            => 'BOOLEAN',
-
-        # (BOOLEAN) [OPTIONAL] Whether to output full execution error messages (stacktraces). Default is false.
+        # Whether to output full execution error messages (stacktraces). Default is false.
         errors           => 'BOOLEAN',
-
-        # (BOOLEAN) [OPTIONAL] Whether verification of SSL certificates should be disabled. Default is false.
+        # Whether verification of SSL certificates should be disabled. Default is false.
         disable_ssl_cert => 'BOOLEAN',
-
-        # (BOOLEAN) [OPTIONAL] Dry run: don't change any data, on the server or on the filesystem. Default is false.
-        dry_run => 'BOOLEAN'
+        #  Dry run: don't change any data, on the server or on the filesystem. Default is false.
+        dry_run          => 'BOOLEAN'
     });
 }
 
