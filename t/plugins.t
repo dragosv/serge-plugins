@@ -60,7 +60,7 @@ sub output_errors {
     die "Couldn't create $errors_path: $@" if $@;
     my $full_filename = catfile('./errors/', $filename);
     open(OUT, ">$full_filename");
-    binmode(OUT, ':unix :utf8');
+    binmode(OUT, ':utf8');
     print OUT $error;
     close(OUT);
 }
@@ -182,11 +182,7 @@ for my $config_file (@confs) {
                 $ok &= dir_diff($cfg->errors_path, $cfg->reference_errors_path, { base_dir => $cfg->{base_dir} }) if -e $cfg->reference_errors_path;
             }
 
-            # Under Windows, deleting just created files may fail with 'Permission denied'
-            # for an unknown reason, and only closing the process will release the file handles.
-            # Since we will be removing test output at the beginning of each test anyway,
-            # don't bail out this time if some files failed to be removed
-            delete_directory($cfg->errors_path, 1) if $ok;
+            delete_directory($cfg->errors_path) if $ok;
         }
     }
 }
