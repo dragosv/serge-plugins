@@ -67,5 +67,12 @@ Packaging
 
 Packaging is managed with Dist::Zilla.
 
+License
+============
+
+[Perl 5 License](./LICENSE)
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins?ref=badge_large)
+
 
 
