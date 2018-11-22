@@ -15,8 +15,7 @@ Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Sour
 [Transifex](https://www.transifex.com/) [![Transifex](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-transifex.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-transifex)
 [Zanata (Open Source)](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-zanata)
 
-Installation
-============
+## Installation
 
 If you want to install and use the plugins then just install it via cpanm. 
 
@@ -25,8 +24,7 @@ cpanm install Serge::Sync::Plugin::TranslationService::plugin
 
 ```
 
-Development setup
-============
+## Development setup
 
 If you want to develop a feature, or contribute code in some way, you need a development setup. This is done by cloning
 the repo into a local directory.
@@ -44,13 +42,11 @@ cpanm install Carton
 carton install
 ```
 
-Organization
-============
+## Organization
 
 lib/Serge/Sync/Plugin/TranslationService: Contains translation services plugins.
 
-Dependencies
-============
+## Dependencies
 
 Dependencies are versioned in a cpanfile. If you have carton, just execute 'carton install' in the sdk directory, and all dependencies
 will be pulled in automatically into a local library path. After that use 'carton exec ...' to execute your scripts.
@@ -63,13 +59,11 @@ If you add a dependency, just add it to the cpanfile file. There are three secti
 
 carton install installs all dependencies in all sections (after all, we're in developer mode here) 
 
-Packaging
-============
+## Packaging
 
 Packaging is managed with Dist::Zilla.
 
-License
-============
+## License
 
 [Perl 5 License](./LICENSE)
 
