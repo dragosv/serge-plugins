@@ -6,7 +6,7 @@
 [![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License: Perl](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://dev.perl.org/licenses/)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins?ref=badge_shield)
 
-Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continous Localization) and various Translation Software (Open Source and Commercial)
+Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continous Localization) and various Translation Software (Open Source and Commercial).
 
 [Crowdin](https://crowdin.com/) [![Crowdin](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-crowdin.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-crowdin)
 [Lingohub](https://www.lingohub.com/) [![Lingohub](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lingohub.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-lingohub)
@@ -14,6 +14,8 @@ Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Sour
 [PhraseApp](https://phraseapp.com/) [![PhraseApp](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phraseapp.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-phraseapp)
 [Transifex](https://www.transifex.com/) [![Transifex](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-transifex.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-transifex)
 [Zanata (Open Source)](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-zanata)
+
+These plugins are supplementing the built-in Serge translation software plugin, [Pootle (Open Source)](https://pootle.translatehouse.org/).
 
 ## Installation
 
