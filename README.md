@@ -1,6 +1,7 @@
 [Serge](https://serge.io/) Plugins
 ============
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ab8d21aa05904ea489382b39f47f61dc)](https://app.codacy.com/app/dragosv/serge-plugins?utm_source=github.com&utm_medium=referral&utm_content=dragosv/serge-plugins&utm_campaign=Badge_Grade_Dashboard)
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![Build Status](https://img.shields.io/travis/dragosv/serge-plugins.svg?branch=master&label=linux+build)](https://travis-ci.org/dragosv/serge-plugins)
 [![Build status](https://img.shields.io/appveyor/ci/dragosv/serge-plugins.svg?label=windows+build)](https://ci.appveyor.com/project/dragosv/serge-plugins/branch/master) [![codecov](https://codecov.io/gh/dragosv/serge-plugins/branch/master/graph/badge.svg)](https://codecov.io/gh/dragosv/serge-plugins)
 [![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License: Perl](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://dev.perl.org/licenses/)
