@@ -7,7 +7,6 @@ sync
         data
         {
             config_file              ./files/config/serge_test.yml
-            upload_translations      YES
         }
     }
 }

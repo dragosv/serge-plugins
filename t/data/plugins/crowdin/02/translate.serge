@@ -2,11 +2,12 @@ sync
 {
     ts
     {
-        plugin                      phraseapp
+        plugin                      crowdin
 
         data
         {
             config_file              ./files/config/serge_test.yml
+            upload_translations      NO
         }
     }
 }
