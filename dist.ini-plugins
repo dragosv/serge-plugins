@@ -8,12 +8,17 @@ main_module = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
 [VersionFromModule]
 
 [GatherDir]
-root = t/[% api_name %]
-prefix = t
+root = t/data/plugins/[% api_name %]
+prefix = t/data/plugins/[% api_name %]
 
 [GatherFile]
 filename = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
 filename = .perlcriticrc
+filename = t/lib/Test/Diff.pm
+filename = t/lib/Test/PluginHost.pm
+filename = t/lib/Test/PluginsConfig.pm
+filename = t/lib/Test/SysCmdRunner.pm
+filename = t/plugins.t
 
 [MakeMaker]
 
