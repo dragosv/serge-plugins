@@ -22,6 +22,10 @@ filename = .perlcriticrc
 [Test::Perl::Critic]
 critic_config = .perlcriticrc
 
+[Test::Version]
+is_strict   = 0
+has_version = 1
+
 [Prereqs]
 Serge = 1.3.2
 

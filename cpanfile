@@ -15,6 +15,7 @@ on 'develop' => sub {
   requires 'Dist::Zilla::Plugin::ConfirmRelease';
   requires 'Dist::Zilla::Plugin::TestRelease';
   requires 'Dist::Zilla::Plugin::UploadToCPAN';
+  requires 'Dist::Zilla::Plugin::Test::Version';
 };
 on 'test' => sub {
   requires 'Test::More';
