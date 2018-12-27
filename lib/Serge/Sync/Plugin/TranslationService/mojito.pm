@@ -9,7 +9,7 @@ use strict;
 use Serge::Util qw(subst_macros culture_from_lang locale_from_lang);
 use version;
 
-our $VERSION = qv('0.903.1');
+our $VERSION = qv('0.904.0');
 
 sub name {
     return 'Mojito translation server (http://www.mojito.global/) synchronization plugin';
@@ -71,7 +71,7 @@ sub validate_data {
     $self->{data}->{inheritance_mode} = 'REMOVE_UNTRANSLATED' unless defined $self->{data}->{inheritance_mode};
     $self->{data}->{status_pull} = 'ACCEPTED' unless defined $self->{data}->{status_pull};
 
-    if (!exists $self->{data}->{destination_locales} or scalar(@{$self->{data}->{destination_locales}}) == 0) {
+    if (!defined $self->{data}->{destination_locales} or scalar(@{$self->{data}->{destination_locales}}) == 0) {
         die "the list of destination languages is empty";
     }
 }
