@@ -18,6 +18,7 @@ filename = t/lib/Test/Diff.pm
 filename = t/lib/Test/PluginHost.pm
 filename = t/lib/Test/PluginsConfig.pm
 filename = t/lib/Test/SysCmdRunner.pm
+filename = t/lib/Test/plugins_config_schema.serge
 filename = t/plugins.t
 
 [MakeMaker]
