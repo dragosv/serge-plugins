@@ -1,9 +1,17 @@
 use warnings;
 use strict;
 
+use Getopt::Long;
 use Template;
 
-my ($command) = @ARGV;
+Getopt::Long::Configure(qw{no_auto_abbrev no_ignore_case_always});
+
+my @ignore_codes_array = [];
+my $command = undef;
+
+GetOptions ("command|c=s" => \$command, "ignore|i=i" => \@ignore_codes_array);
+
+my $ignore_codes = \@ignore_codes_array;
 
 if (not defined $command) {
     die "command undefined\n";
@@ -28,6 +36,11 @@ foreach my $dir (@dirs) {
     print $result;
 
     my $error_code = unpack 'c', pack 'C', $? >> 8; # error code
+
+    if (($error_code != 0) && $ignore_codes && (grep($_ eq $error_code, @ignore_codes_array) > 0)) {
+        print "Exit code: $error_code (ignored)\n";
+        $error_code = 0;
+    }
 
     die "\nExit code: $error_code; last error: $!\n" if $error_code != 0;
 }

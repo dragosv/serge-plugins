@@ -17,7 +17,7 @@ script:
   - carton exec cover -delete
   - carton exec perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
   - carton exec perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
-  - carton exec perl build-bin/dzil-plugins.pl build
-  - carton exec perl build-bin/dzil-plugins.pl test
+  - carton exec perl build-bin/dzil-plugins.pl -c build
+  - carton exec perl build-bin/dzil-plugins.pl -c test
 after_success:
   - cover -report codecov

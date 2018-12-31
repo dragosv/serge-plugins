@@ -25,7 +25,7 @@ install:
   - set PERL5LIB=C:\projects\serge-plugins\local\lib\perl5
 
 build_script:
-  -  perl build-bin/dzil-plugins.pl build
+  -  perl build-bin/dzil-plugins.pl -c build
 
 before_test:
   - cover -delete
@@ -33,7 +33,7 @@ before_test:
 test_script:
   - perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
   - perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
-  - perl build-bin/dzil-plugins.pl test
+  - perl build-bin/dzil-plugins.pl -c test
 
 after_test:
   - cover -report codecov
