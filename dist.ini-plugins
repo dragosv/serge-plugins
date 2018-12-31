@@ -10,6 +10,7 @@ main_module = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
 [GatherDir]
 root = t/data/plugins/[% api_name %]
 prefix = t/data/plugins/[% api_name %]
+include_dotfiles = 1
 
 [GatherFile]
 filename = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
