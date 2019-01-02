@@ -16,6 +16,7 @@ on 'develop' => sub {
   requires 'Dist::Zilla::Plugin::TestRelease';
   requires 'Dist::Zilla::Plugin::UploadToCPAN';
   requires 'Dist::Zilla::Plugin::Test::Version';
+  requires 'Dist::Zilla::Plugin::ReadmeAnyFromPod';
 };
 on 'test' => sub {
   requires 'Test::More';

@@ -21,6 +21,7 @@ filename = t/lib/Test/PluginsConfig.pm
 filename = t/lib/Test/SysCmdRunner.pm
 filename = t/lib/Test/plugins_config_schema.serge
 filename = t/plugins.t
+filename = doc/pod/[% api_name %].pod
 
 [MakeMaker]
 
@@ -51,5 +52,11 @@ bugtracker.web = https://github.com/dragosv/serge-plugins/issues
 [TestRelease]
 [ConfirmRelease]
 [UploadToCPAN]
+
+[ReadmeAnyFromPod]
+type = markdown
+filename = README.mkdn
+source_filename = doc/pod/[% api_name %].pod
+
 
 
