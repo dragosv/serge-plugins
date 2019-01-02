@@ -2,7 +2,7 @@ name = Serge-Sync-Plugin-TranslationService-[% api_name %]
 author  = Dragos Varovici <dvarovici.work@gmail.com>
 license = Perl_5
 copyright_holder = Dragos Varovici
-copyright_year   = 2018
+copyright_year   = 2019
 main_module = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
 
 [VersionFromModule]
