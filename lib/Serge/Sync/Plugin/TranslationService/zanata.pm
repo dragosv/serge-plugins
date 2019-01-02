@@ -1,5 +1,4 @@
-# ABSTRACT: Serge Zanata translation server (http://zanata.org/) synchronization plugin
-#           Tested with zanata-cli v4.6+
+# ABSTRACT: Zanata (http://zanata.org/) synchronization plugin for Serge
 
 package Serge::Sync::Plugin::TranslationService::zanata;
 

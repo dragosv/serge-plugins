@@ -1,4 +1,4 @@
-# ABSTRACT: Serge Mojito translation server (http://www.mojito.global/) synchronization plugin
+# ABSTRACT: Mojito (http://www.mojito.global/) synchronization plugin for Serge
 
 package Serge::Sync::Plugin::TranslationService::mojito;
 

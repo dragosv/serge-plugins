@@ -1,4 +1,4 @@
-# ABSTRACT: Lingohub translation server (https://www.lingohub.com) synchronization plugin
+# ABSTRACT: Lingohub (https://www.lingohub.com) synchronization plugin for Serge
 
 package Serge::Sync::Plugin::TranslationService::lingohub;
 use parent Serge::Sync::Plugin::Base::TranslationService, Serge::Interface::SysCmdRunner;
@@ -14,7 +14,7 @@ use version;
 our $VERSION = qv('0.901.4');
 
 sub name {
-    return 'Lingohub translation server (https://www.lingohub.com) synchronization plugin';
+    return 'Lingohub translation software (https://www.lingohub.com) synchronization plugin';
 }
 
 sub init {
