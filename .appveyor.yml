@@ -20,9 +20,10 @@ install:
   - perl -v
   - perl -V:make
   - cpanm install Carton
-  - carton install
-  - set PATH=C:\projects\serge-plugins\local\bin;%PATH%
-  - set PERL5LIB=C:\projects\serge-plugins\local\lib\perl5
+  - carton install --path C:\strawberry\carton
+  - set PATH=C:\strawberry\carton\bin;%PATH%
+  - set PERL_CARTON_PATH=C:\strawberry\carton
+  - set PERL5LIB=C:\strawberry\carton\lib\perl5
 
 build_script:
   -  perl build-bin/dzil-plugins.pl -c build
