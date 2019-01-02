@@ -6,10 +6,11 @@ use Template;
 
 Getopt::Long::Configure(qw{no_auto_abbrev no_ignore_case_always});
 
-my @ignore_codes_array = [];
+my @ignore_codes_array = ();
+my @plugins = ();
 my $command = undef;
 
-GetOptions ("command|c=s" => \$command, "ignore|i=i" => \@ignore_codes_array);
+GetOptions ("command|c=s" => \$command, "ignore|i=i" => \@ignore_codes_array, "plugins|p=s" => \@plugins);
 
 my $ignore_codes = \@ignore_codes_array;
 
@@ -19,15 +20,26 @@ if (not defined $command) {
 
 my $template = Template->new || die Template->error(), "\n";
 
-my @dirs = glob('lib/Serge/Sync/Plugin/TranslationService/*.pm');
+my $plugins_count = scalar @plugins;
 
-foreach my $dir (@dirs) {
-    my ($module_name) = ($dir =~ m/.*\/(.*?)\.pm/);
+if ($plugins_count == 0) {
+    @plugins = ();
+    my @modules = glob('lib/Serge/Sync/Plugin/TranslationService/*.pm');
 
-    print "$module_name\n";
+    foreach my $module (@modules) {
+        my ($module_name) = ($module =~ m/.*\/(.*?)\.pm/);
+
+        if ($module_name) {
+            push @plugins, $module_name;
+        }
+    }
+}
+
+foreach my $plugin (@plugins) {
+    print "$plugin\n";
 
     $template->process('dist.ini-plugins', {
-	  api_name => $module_name
+	  api_name => $plugin
 	},
 	'dist.ini') || die $template->error(), "\n";
 
