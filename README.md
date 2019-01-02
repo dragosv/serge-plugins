@@ -7,7 +7,7 @@
 [![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License: Perl](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://dev.perl.org/licenses/)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins?ref=badge_shield)
 
-Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continous Localization) and various Translation Software (Open Source and Commercial).
+Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continuous Localization) and various Translation Software (Open Source and Commercial).
 
 [Crowdin](https://crowdin.com/) [![Crowdin](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-crowdin.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-crowdin)
 [Lingohub](https://www.lingohub.com/) [![Lingohub](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lingohub.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-lingohub)
@@ -51,7 +51,7 @@ lib/Serge/Sync/Plugin/TranslationService: Contains translation services plugins.
 
 ## Dependencies
 
-Dependencies are versioned in a cpanfile. If you have carton, just execute 'carton install' in the sdk directory, and all dependencies
+Dependencies are versioned in a cpanfile. If you have carton, just execute 'carton install' in the main directory, and all dependencies
 will be pulled in automatically into a local library path. After that use 'carton exec ...' to execute your scripts.
 
 If you add a dependency, just add it to the cpanfile file. There are three sections:
