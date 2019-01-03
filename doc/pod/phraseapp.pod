@@ -6,7 +6,6 @@ Serge::Sync::Plugin::TranslationService::phraseapp - L<Phraseapp|https://phrasea
 
 =head1 SYNOPSIS
 
-{
     ts
     {
         plugin                      phraseapp
