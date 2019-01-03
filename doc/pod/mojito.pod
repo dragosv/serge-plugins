@@ -47,6 +47,7 @@ Mojito configuration file
 Dragos Varovici <dvarovici.work@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
+
 This software is copyright (c) 2018-2019 by Dragos Varovici.
 
 This is free software; you can redistribute it and/or modify it under

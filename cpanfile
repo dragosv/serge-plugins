@@ -17,6 +17,11 @@ on 'develop' => sub {
   requires 'Dist::Zilla::Plugin::UploadToCPAN';
   requires 'Dist::Zilla::Plugin::Test::Version';
   requires 'Dist::Zilla::Plugin::ReadmeAnyFromPod';
+  requires 'Dist::Zilla::Plugin::CopyFilesFromBuild';
+  requires 'Dist::Zilla::Plugin::PodSyntaxTests';
+  requires 'Dist::Zilla::Plugin::PodCoverageTests';
+  requires 'Dist::Zilla::Plugin::Clean';
+  requires 'Dist::Zilla::Plugin::Test::PodSpelling';
 };
 on 'test' => sub {
   requires 'Test::More';
