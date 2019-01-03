@@ -9,12 +9,12 @@
 
 Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continuous Localization) and various Translation Software (Open Source and Commercial).
 
-[Crowdin](https://crowdin.com/) [![Crowdin](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-crowdin.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-crowdin)
-[Lingohub](https://www.lingohub.com/) [![Lingohub](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lingohub.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-lingohub)
-[Mojito (Open Source)](http://www.mojito.global/) [![Mojito](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-mojito.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-mojito)
-[PhraseApp](https://phraseapp.com/) [![PhraseApp](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phraseapp.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-phraseapp)
-[Transifex](https://www.transifex.com/) [![Transifex](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-transifex.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-transifex)
-[Zanata (Open Source)](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/release/Serge-Sync-Plugin-TranslationService-zanata)
+[Crowdin](https://crowdin.com/) [![Crowdin](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-crowdin.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::crowdin)
+[Lingohub](https://www.lingohub.com/) [![Lingohub](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lingohub.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::lingohub)
+[Mojito (Open Source)](http://www.mojito.global/) [![Mojito](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-mojito.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::mojito)
+[PhraseApp](https://phraseapp.com/) [![PhraseApp](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phraseapp.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::phraseapp)
+[Transifex](https://www.transifex.com/) [![Transifex](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-transifex.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::transifex)
+[Zanata (Open Source)](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::zanata)
 
 These plugins are supplementing the built-in Serge translation software plugin, [Pootle (Open Source)](https://pootle.translatehouse.org/).
 
