@@ -17,12 +17,13 @@ before_install:
 install:
   - carton install --path $HOME/.carton
 script:
+  - export PERL5LIB=$HOME/.carton/lib/perl5
   - export PERL_CARTON_PATH=$HOME/.carton
   - carton exec cover -delete
-  - carton exec perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
-  - carton exec perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
-  - carton exec perl build-bin/dzil-plugins.pl -c build
-  - carton exec perl build-bin/dzil-plugins.pl -c test
+  - perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
+  - perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
+  - perl build-bin/dzil-plugins.pl -c build
+  - perl build-bin/dzil-plugins.pl -c test
 after_success:
-  - cover -report codecov
+  - carton exec cover -report codecov
 

@@ -14,27 +14,25 @@ cache:
   - C:\strawberry
 
 install:
-  - if not exist "C:\strawberry" choco install strawberryperl --version %version%
-  - set PATH=C:\strawberry\perl\bin;C:\strawberry\perl\site\bin;C:\strawberry\c\bin;%PATH%
-  - cd C:\projects\%APPVEYOR_PROJECT_NAME%
-  - perl -v
-  - perl -V:make
-  - cpanm install Carton
-  - carton install --path C:\strawberry\carton
-  - set PATH=C:\strawberry\carton\bin;%PATH%
-  - set PERL_CARTON_PATH=C:\strawberry\carton
-  - set PERL5LIB=C:\strawberry\carton\lib\perl5
+  - cmd: if not exist "C:\strawberry" choco install strawberryperl --version %version%
+  - cmd: set PATH=C:\strawberry\perl\bin;C:\strawberry\perl\site\bin;C:\strawberry\c\bin;%PATH%
+  - cmd: cd C:\projects\%APPVEYOR_PROJECT_NAME%
+  - cmd: perl -v
+  - cmd: cpanm install Carton
+  - cmd: carton install --path C:\strawberry\carton
+  - cmd: set PATH=C:\strawberry\carton\bin;%PATH%
+  - cmd: set PERL5LIB=C:\strawberry\carton\lib\perl5
 
 build_script:
-  -  perl build-bin/dzil-plugins.pl -c build
+  - cmd: perl build-bin/dzil-plugins.pl -c build
 
 before_test:
-  - cover -delete
+  - cmd: cover -delete
 
 test_script:
-  - perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
-  - perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
-  - perl build-bin/dzil-plugins.pl -c test
+  - cmd: perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
+  - cmd: perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
+  - cmd: perl build-bin/dzil-plugins.pl -c test
 
 after_test:
-  - cover -report codecov
+  - cmd: cover -report codecov
