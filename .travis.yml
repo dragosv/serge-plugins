@@ -9,11 +9,15 @@ perl:
   - "5.18"
   - "5.16"
 sudo: false
+cache:
+  directories:
+    - $HOME/.carton
 before_install:
   - cpanm Carton
 install:
-  - carton install
+  - carton install --path $HOME/.carton
 script:
+  - export PERL_CARTON_PATH=$HOME/.carton
   - carton exec cover -delete
   - carton exec perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
   - carton exec perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
@@ -21,3 +25,4 @@ script:
   - carton exec perl build-bin/dzil-plugins.pl -c test
 after_success:
   - cover -report codecov
+
