@@ -19,6 +19,17 @@ Serge::Sync::Plugin::TranslationService::phraseapp - L<Phraseapp|https://phrasea
 =head1 DESCRIPTION
 
 Integration between Serge (Free, Open Source Solution for Continuous Localization) and Phraseapp (Translation and localization management system for web and mobile applications).
+Uses the command-line tool for the PhraseApp API. See L<PhraseApp CLI|https://phraseapp.com/cli>.
+
+=head1 ATTRIBUTES
+
+=over
+
+=item I<config_file>
+
+PhraseApp CLI path to the configuration file
+
+=back
 
 =head1 INSTALLATION
 
