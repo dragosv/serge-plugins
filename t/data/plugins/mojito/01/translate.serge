@@ -11,7 +11,13 @@ sync
             source_files_path       ./files/source
             localized_files_path    ./files/target
             file_type               XLIFF
-            destination_locales     de es fr-ca
+
+            locale_mapping
+            {
+                de      de-DE
+                es      es-ES
+                fr-ca   fr-CA
+            }
         }
     }
 }

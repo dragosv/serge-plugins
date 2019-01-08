@@ -6,17 +6,10 @@ sync
 
         data
         {
+            repository_name         SergeTest
             application_properties  ./files/config/serge_test.properties
             source_files_path       ./files/source
             localized_files_path    ./files/target
-            file_type               XLIFF
-
-            locale_mapping
-            {
-                de      de-DE
-                es      es-ES
-                fr-ca   fr-CA
-            }
         }
     }
 }

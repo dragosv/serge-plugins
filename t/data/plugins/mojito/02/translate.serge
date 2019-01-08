@@ -12,7 +12,13 @@ sync
             localized_files_path    ./files/target
             import_translations     NO
             file_type               PO
-            destination_locales     pt-br pt-pt
+
+            locale_mapping
+            {
+                pt        pt-BR
+                pt-pt     pt-PT
+            }
+
             inheritance_mode        USE_PARENT
             status_pull             ACCEPTED_OR_NEEDS_REVIEW
             status_equal_target     TRANSLATION_NEEDED
