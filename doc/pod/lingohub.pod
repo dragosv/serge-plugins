@@ -15,7 +15,7 @@ Serge::Sync::Plugin::TranslationService::lingohub - L<LingoHub|https://www.lingo
             project                 LingoHubProject
             root_directory          ./files
             resource_directory      resources
-            destination_languages   de es fr-ca
+            target_languages   de es fr-ca
         }
     }
 
@@ -36,9 +36,9 @@ LingoHub project.
 
 Root directory.
 
-=item I<destination_languages>
+=item I<target_languages>
 
-List of languages.
+List of target languages.
 
 =back
 
