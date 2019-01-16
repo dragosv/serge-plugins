@@ -16,6 +16,11 @@ include_dotfiles = 1
 root = t/lib
 prefix = t/lib
 
+[GatherDir / Examples]
+root = examples/[% api_name %]
+prefix = examples
+include_dotfiles = 1
+
 [GatherFile]
 filename = lib/Serge/Sync/Plugin/TranslationService/[% api_name %].pm
 filename = .perlcriticrc
