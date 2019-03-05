@@ -31,4 +31,5 @@ on 'test' => sub {
   requires 'Class::Unload';
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
+  requires 'Clone';
 };
