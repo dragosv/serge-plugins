@@ -43,6 +43,9 @@ has_version = 1
 [Prereqs]
 Serge = 1.3.2
 
+[Prereqs / TestRequires]
+Clone = 0
+
 [MakeMaker]
 [MetaYAML]
 [MetaJSON]
