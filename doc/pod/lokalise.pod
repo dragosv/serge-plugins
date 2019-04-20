@@ -32,7 +32,7 @@ Lokalise CLI path to the configuration file
 
 =item I<resource_directory>
 
-Transifex CLI resources directory.
+Lokalise CLI resources directory.
 
 =back
 
