@@ -11,6 +11,7 @@ Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Sour
 
 [Crowdin](https://crowdin.com/) [![Crowdin](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-crowdin.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::crowdin)
 [LingoHub](https://www.lingohub.com/) [![LingoHub](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lingohub.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::lingohub)
+[Locize](https://locize.com) [![Locize](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-locize.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::locize)
 [Lokalise](https://lokalise.co) [![Lokalise](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lokalise.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::lokalise)
 [Mojito (Open Source)](http://www.mojito.global/) [![Mojito](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-mojito.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::mojito)
 [PhraseApp](https://phraseapp.com/) [![PhraseApp](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phraseapp.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::phraseapp)
