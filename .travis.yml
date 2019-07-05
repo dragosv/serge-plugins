@@ -2,6 +2,7 @@ language: perl
 env:
   - IN_TRAVIS=1 AUTHOR_TESTING=1
 perl:
+  - "5.30"
   - "5.28"
   - "5.26"
   - "5.24"
