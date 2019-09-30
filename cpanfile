@@ -1,5 +1,5 @@
 requires 'perl' => '5.010001';
-requires 'Serge';
+requires 'Serge', '1.4';
 
 on 'develop' => sub {
   requires 'Template';

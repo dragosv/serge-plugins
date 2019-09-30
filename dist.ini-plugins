@@ -41,7 +41,7 @@ is_strict   = 0
 has_version = 1
 
 [Prereqs]
-Serge = 1.3.2
+Serge = 1.4.0
 
 [Prereqs / TestRequires]
 Clone = 0
