@@ -36,6 +36,14 @@ LingoHub project.
 
 Root directory.
 
+=item I<resource_directory>
+
+Resource directory.
+
+=item I<source_language>
+
+Source language.
+
 =item I<target_languages>
 
 List of target languages.
