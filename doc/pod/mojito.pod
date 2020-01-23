@@ -40,9 +40,38 @@ Mojito CLI configuration file (server connection properties)
 
 Directory of the source resource files
 
+=item I<source_locale>
+
+Source locale
+
 =item I<localized_files_path>
 
 Directory of the localized resource files
+
+
+=item I<import_translations>
+
+Import translations flag. Default YES
+
+=item I<inheritance_mode>
+
+Inheritance mode. Default REMOVE_UNTRANSLATED
+
+=item I<file_type>
+
+File type
+
+=item I<status_equal_target>
+
+Status equal target
+
+=item I<status_pull>
+
+Status pull. Default ACCEPTED
+
+=item I<destination_locales>
+
+List of destination locales
 
 =back
 
