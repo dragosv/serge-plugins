@@ -34,6 +34,18 @@ Lokalise CLI path to the configuration file
 
 Lokalise CLI resources directory.
 
+=item I<languages>
+
+Lokalise CLI list of languages.
+
+=item I<file_mask>
+
+Lokalise CLI file mask.
+
+=item I<file_format>
+
+Lokalise CLI file format.
+
 =back
 
 =head1 INSTALLATION
