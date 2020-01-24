@@ -1,13 +1,13 @@
 [Serge](https://serge.io/) Plugins
 ============
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip) [![Build Status](https://img.shields.io/travis/dragosv/serge-plugins/master.svg?label=linux+build)](https://travis-ci.org/dragosv/serge-plugins)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Build Status](https://img.shields.io/travis/dragosv/serge-plugins/master.svg?label=linux+build)](https://travis-ci.org/dragosv/serge-plugins)
 [![Build status](https://ci.appveyor.com/api/projects/status/tb6j1owidqvdfx90/branch/master?svg=true&passingText=windows%20build%20passing&failingText=windows%20build%20failing&pendingText=windows%20build%20pending)](https://ci.appveyor.com/project/dragosv/serge-plugins/branch/master) [![codecov](https://codecov.io/gh/dragosv/serge-plugins/branch/master/graph/badge.svg)](https://codecov.io/gh/dragosv/serge-plugins)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=shields)](http://makeapullrequest.com)
 [![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License: Perl](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://dev.perl.org/licenses/)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins?ref=badge_shield)
 
-Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continuous Localization) and various Translation Software (Open Source and Commercial).
+Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Source Solution for Continuous Localization) and various Translation Software (Open Source and Commercial). 
 
 [Crowdin](https://crowdin.com/) [![Crowdin](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-crowdin.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::crowdin)
 [LingoHub](https://www.lingohub.com/) [![LingoHub](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lingohub.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::lingohub)
