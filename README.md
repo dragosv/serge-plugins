@@ -43,8 +43,15 @@ With carton you can install all the dependencies needed in a local environment, 
 affecting the system libraries. The cpanfile is used to track the dependencies needed.
 
 ```
+cpan App::cpanminus
 cpanm install Carton
 carton install
+```
+
+Once the development environment is set-up, in order to run the tests, make should be used
+
+```
+make test
 ```
 
 ## Organization
