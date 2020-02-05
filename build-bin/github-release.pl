@@ -3,6 +3,7 @@ use strict;
 
 use Getopt::Long;
 use Template;
+use Module::Metadata;
 
 Getopt::Long::Configure(qw{no_auto_abbrev no_ignore_case_always});
 
@@ -71,12 +72,12 @@ sub check_tag_exists {
     check_error_code();
 
     if ($tag_check) {
-        print "tag ${tag} already exists";
+        print "tag ${tag} already exists\n";
 
         return 1;
     }
 
-    print "tag ${tag} does not exists";
+    print "tag ${tag} does not exists\n";
 
     return 0;
 }
@@ -96,32 +97,26 @@ sub create_tag {
 sub get_version {
     my ($plugin) = @_;
 
+    my $plugin_module = "lib/Serge/Sync/Plugin/TranslationService/$plugin.pm";
+
+    # information about a .pm file
+    my $info = Module::Metadata->new_from_file( $plugin_module );
+    my $version = $info->version->{original};
+
+    return $version;
+}
+
+sub run_dzil {
+    my ($plugin,$command) = @_;
+
     $template->process('dist.ini-plugins', {
         api_name => $plugin
     },
         'dist.ini') || die $template->error(), "\n";
 
-    my $result = `dzil build`;
+    my $result = `dzil $command`;
 
     print $result;
 
-    my $error_code = unpack 'c', pack 'C', $? >> 8; # error code
-
-    die "\nExit code: $error_code; last error: $!\n" if $error_code != 0;
-
-    my $full_plugin = "Serge::Sync::Plugin::TranslationService::$plugin";
-
-    print ("$full_plugin\n");
-
-    my $full_version = `perldoc -m "$full_plugin" | grep VERSION`;
-
-    my $version = '';
-
-    if ($full_version =~ /([0-9.]+)/g) {
-        $version = $1;
-    }
-
-    $full_version =~ s/([0-9.]+)/$1/g;
-
-    return $version;
+    check_error_code();
 }

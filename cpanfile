@@ -3,6 +3,7 @@ requires 'Serge', '1.4';
 
 on 'develop' => sub {
   requires 'Template';
+  requires 'Module::Metadata';
   requires 'Dist::Zilla';
   requires 'Dist::Zilla::Plugin::Prereqs::FromCPANfile';
   requires 'Dist::Zilla::Plugin::VersionFromMainModule';
