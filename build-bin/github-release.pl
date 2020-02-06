@@ -36,10 +36,18 @@ foreach my $plugin (@plugins) {
     my $tag_exists = check_tag_exists($plugin, $version);
 
     if (not $tag_exists) {
-        create_tag(($plugin, $version))
+        create_tag($plugin, $version);
+
+        git_push();
     }
 
-    git_push();
+    my $release_exists = check_release_exists($plugin, $version);
+
+    if (not $release_exists) {
+        run_dzil($plugin, 'build');
+
+        create_release($plugin, $version);
+    }
 }
 
 sub check_error_code {
@@ -82,12 +90,46 @@ sub check_tag_exists {
     return 0;
 }
 
+sub check_release_exists {
+    my ($plugin, $version) = @_;
+
+    my $tag = get_tag($plugin, $version);
+
+    my $releases = `hub release`;
+
+    check_error_code();
+
+    if ($releases =~ /$tag/g) {
+        print "release ${tag} already exists\n";
+
+        return 1;
+    }
+
+    print "release ${tag} does not exists\n";
+
+    return 0;
+}
+
 sub create_tag {
     my ($plugin, $version) = @_;
 
     my $tag = get_tag($plugin, $version);
 
     my $result = `git tag -a $tag -m "${plugin} version ${version}"`;
+
+    check_error_code();
+
+    print $result;
+}
+
+sub create_release {
+    my ($plugin, $version) = @_;
+
+    my $tag = get_tag($plugin, $version);
+
+    my $full_plugin_file = "Serge-Sync-Plugin-TranslationService-${plugin}-${version}.tar.gz";
+
+    my $result = `hub release create -a "${full_plugin_file}" -m "${plugin} version ${version}" ${tag}`;
 
     check_error_code();
 
