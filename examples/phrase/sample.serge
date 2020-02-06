@@ -2,7 +2,7 @@ sync
 {
     ts
     {
-        plugin                      phraseapp
+        plugin                      phrase
 
         data
         {
@@ -27,7 +27,7 @@ sync
 jobs
 {
     {
-        id                          phraseapp.sample.job
+        id                          phrase.sample.job
 
         source_language             en
         destination_languages       de ja fr-ca

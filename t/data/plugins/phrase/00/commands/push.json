@@ -3,6 +3,6 @@
       "env" : {
          "PHRASEAPP_CONFIG" : "./files/config/serge_test.yml"
       },
-      "command" : "phraseapp push --wait"
+      "command" : "phrase push --wait"
    }
 ]

@@ -1,4 +1,4 @@
-phraseapp:
+phrase:
   push:
     sources:
     - file: ./files/resources/<locale_name>/<tag>.xliff

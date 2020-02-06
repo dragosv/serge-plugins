@@ -2,24 +2,24 @@
 
 =head1 NAME
 
-Serge::Sync::Plugin::TranslationService::phraseapp - L<PhraseApp|https://phraseapp.com> synchronization plugin for L<Serge|https://serge.io/> based on L<PhraseApp CLI|https://phraseapp.com/cli>
+Serge::Sync::Plugin::TranslationService::phrase - L<Phrase|https://phrase.com> synchronization plugin for L<Serge|https://serge.io/> based on L<Phrase CLI|https://phrase.com/cli>
 
 =head1 SYNOPSIS
 
     ts
     {
-        plugin                      phraseapp
+        plugin                      phrase
 
         data
         {
-            config_file              ./files/config/phraseapp_config_file.yml
+            config_file              ./files/config/phrase_config_file.yml
         }
     }
 
 =head1 DESCRIPTION
 
-Integration between Serge (Free, Open Source Solution for Continuous Localization) and PhraseApp (Translation and localization management system for web and mobile applications),
-implemented using command-line tool for the PhraseApp API.
+Integration between Serge (Free, Open Source Solution for Continuous Localization) and Phrase (Translation and localization management system for web and mobile applications),
+implemented using command-line tool for the Phrase API.
 
 =head1 ATTRIBUTES
 
@@ -27,7 +27,7 @@ implemented using command-line tool for the PhraseApp API.
 
 =item I<config_file>
 
-PhraseApp CLI path to the configuration file.
+Phrase CLI path to the configuration file.
 
 =item I<upload_translations>
 
@@ -45,7 +45,7 @@ Verbose output. Default NO.
 
 =head1 INSTALLATION
 
- cpanm Serge::Sync::Plugin::TranslationService::phraseapp
+ cpanm Serge::Sync::Plugin::TranslationService::phrase
 
 =head1 AUTHOR
 

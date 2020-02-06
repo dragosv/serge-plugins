@@ -1,6 +1,6 @@
-# ABSTRACT: PhraseApp (https://phraseapp.com) synchronization plugin for Serge
+# ABSTRACT: Phrase (https://phrase.com) synchronization plugin for Serge
 
-package Serge::Sync::Plugin::TranslationService::phraseapp;
+package Serge::Sync::Plugin::TranslationService::phrase;
 use parent Serge::Sync::Plugin::Base::TranslationService, Serge::Interface::SysCmdRunner;
 
 use strict;
@@ -8,10 +8,10 @@ use strict;
 use Serge::Util qw(subst_macros);
 use version;
 
-our $VERSION = qv('0.903.0');
+our $VERSION = qv('0.904.0');
 
 sub name {
-    return 'PhraseApp translation software (https://phraseapp.com) synchronization plugin';
+    return 'Phrase translation software (https://phrase.com) synchronization plugin';
 }
 
 sub init {
@@ -44,14 +44,14 @@ sub validate_data {
     $self->{data}->{verbose} = 0 unless defined $self->{data}->{verbose};
 }
 
-sub run_phraseapp_cli {
+sub run_phrase_cli {
     my ($self, $action, $langs, $capture) = @_;
 
     local $ENV{'PHRASEAPP_CONFIG'} = $self->{data}->{config_file};
 
     my $command = $action;
 
-    $command = 'phraseapp '.$command;
+    $command = 'phrase '.$command;
 
     if ($self->{data}->{verbose}) {
         $command .= ' --verbose ';
@@ -64,7 +64,7 @@ sub run_phraseapp_cli {
 sub pull_ts {
     my ($self, $langs) = @_;
 
-    return $self->run_phraseapp_cli('pull', $langs);
+    return $self->run_phrase_cli('pull', $langs);
 }
 
 sub push_ts {
@@ -76,7 +76,7 @@ sub push_ts {
         $action = $action.' --wait';
     }
 
-    $self->run_phraseapp_cli($action, $langs);
+    $self->run_phrase_cli($action, $langs);
 }
 
 1;

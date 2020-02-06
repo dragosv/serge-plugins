@@ -2,7 +2,7 @@ sync
 {
     ts
     {
-        plugin                      phraseapp
+        plugin                      phrase
 
         data
         {

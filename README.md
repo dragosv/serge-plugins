@@ -14,7 +14,7 @@ Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Sour
 [Locize](https://locize.com) [![Locize](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-locize.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::locize)
 [Lokalise](https://lokalise.co) [![Lokalise](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lokalise.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::lokalise)
 [Mojito (Open Source)](http://www.mojito.global/) [![Mojito](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-mojito.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::mojito)
-[PhraseApp](https://phraseapp.com/) [![PhraseApp](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phraseapp.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::phraseapp)
+[Phrase](https://phrase.com/) [![Phrase](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phrase.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::phrase)
 [Transifex](https://www.transifex.com/) [![Transifex](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-transifex.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::transifex)
 [Zanata (Open Source)](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::zanata)
 
