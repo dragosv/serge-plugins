@@ -18,7 +18,7 @@ Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Sour
 [Transifex](https://www.transifex.com/) [![Transifex](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-transifex.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::transifex)
 [Zanata (Open Source)](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::zanata)
 
-These plugins are supplementing the built-in Serge translation software plugin, [Pootle (Open Source)](https://pootle.translatehouse.org/).
+These plugins are supplementing the built-in Serge translation software plugins, [Pootle (Open Source)](https://pootle.translatehouse.org/) and [Zing (Open Source)](https://evernote.github.io/zing/).
 
 ## Installation
 
