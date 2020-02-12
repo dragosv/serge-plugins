@@ -9,4 +9,5 @@ RUN apt-get -y install curl \
     && curl -sL https://deb.nodesource.com/setup_13.x | bash - \
     && apt-get install -y nodejs \
     && apt-get install -y npm \
-    && npm install -g locize-cli
+    && npm install -g locize-cli \
+    && locize --version
