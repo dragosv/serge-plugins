@@ -8,7 +8,7 @@ use strict;
 use Serge::Util qw(subst_macros);
 use version;
 
-our $VERSION = qv('0.904.1');
+our $VERSION = qv('0.905.0');
 
 sub name {
     return 'Phrase translation software (https://phrase.com) synchronization plugin';
@@ -51,7 +51,7 @@ sub run_phrase_cli {
 
     my $command = $action;
 
-    $command = 'phrase '.$command;
+    $command = 'phraseapp '.$command;
 
     if ($self->{data}->{verbose}) {
         $command .= ' --verbose ';
