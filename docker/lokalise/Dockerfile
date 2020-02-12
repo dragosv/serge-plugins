@@ -16,4 +16,5 @@ COPY . /serge
 COPY --from=0 /lokalise /tmp
 
 RUN cp /tmp/lokalise /usr/local/bin \
-    && chmod +x /usr/local/bin/lokalise
+    && chmod +x /usr/local/bin/lokalise \
+    && lokalise --version
