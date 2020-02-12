@@ -12,6 +12,11 @@ LABEL maintainers="Dragos Varovici <dvarovici.work@gmail.com>"
 LABEL git_sha1="${GIT_SHA1}"
 
 COPY . /serge
-COPY --from=builder /mojito /usr/local/bin
+COPY --from=builder /mojito /tmp
 
-RUN echo "java -jar mojito-cli.jar $@" >> /usr/local/bin/mojito.sh
+RUN apt-get -y install openjdk-8-jre \
+    && mkdir /etc/mojito \
+    && mkdir /etc/mojito/cli \
+    && cp /tmp/mojito-cli.jar /etc/mojito/cli \
+    && printf '#!/bin/sh\njava -Dspring.config.location=/etc/mojito/cli/ -jar /etc/mojito/cli/mojito-cli.jar "$@"' > /usr/bin/mojito \
+    && chmod +x /usr/bin/mojito
