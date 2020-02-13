@@ -28,7 +28,7 @@ filename = t/plugins.t
 
 [GatherFile / MainModulePod]
 filename = [% api_name %].pod
-root = doc/pod
+root = docs/pod
 prefix = lib/Serge/Sync/Plugin/TranslationService
 
 [Test::Compile]
