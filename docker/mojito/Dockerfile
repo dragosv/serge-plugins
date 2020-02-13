@@ -19,4 +19,5 @@ RUN apt-get -y install openjdk-8-jre \
     && mkdir /etc/mojito/cli \
     && cp /tmp/mojito-cli.jar /etc/mojito/cli \
     && printf '#!/bin/sh\njava -Dspring.config.location=/etc/mojito/cli/ -jar /etc/mojito/cli/mojito-cli.jar "$@"' > /usr/bin/mojito \
-    && chmod +x /usr/bin/mojito
+    && chmod +x /usr/bin/mojito \
+    && mojito -v
