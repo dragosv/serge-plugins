@@ -14,7 +14,7 @@ Plugins allowing integration between [Serge](https://serge.io/) (Free, Open Sour
 [Locize](https://locize.com) [![Locize](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-locize.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::locize)
 [Lokalise](https://lokalise.co) [![Lokalise](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-lokalise.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::lokalise)
 [Mojito (Open Source)](http://www.mojito.global/) [![Mojito](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-mojito.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::mojito)
-[Phrase](https://phrase.com/) [![Phrase](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phrase.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::phrase)
+[Phrase](https://phrase.com/) [![Phrase](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-phrase.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::phrase) ![Docker Build Status](https://img.shields.io/docker/build/dragosvr/serge-phrase?label=docker)
 [Transifex](https://www.transifex.com/) [![Transifex](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-transifex.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::transifex)
 [Zanata (Open Source)](http://zanata.org/) [![Zanata](https://img.shields.io/cpan/v/Serge-Sync-Plugin-TranslationService-zanata.svg)](https://metacpan.org/pod/Serge::Sync::Plugin::TranslationService::zanata)
 
@@ -77,6 +77,6 @@ Packaging is managed with Dist::Zilla.
 
 ## License
 
-[Perl 5 License](./LICENSE)
+[Perl 5 License](../LICENSE)
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins?ref=badge_large)
