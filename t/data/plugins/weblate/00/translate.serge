@@ -1,0 +1,16 @@
+sync
+{
+    ts
+    {
+        plugin                      weblate
+
+        data
+        {
+            root_directory          ./files/resources
+            config_file             ./files/.weblate
+            project                 test
+            target_languages        fr-fr es
+            method                  translate
+        }
+    }
+}
