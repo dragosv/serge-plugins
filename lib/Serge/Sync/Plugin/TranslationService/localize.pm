@@ -28,7 +28,8 @@ sub init {
     $self->merge_schema({
         root_directory => 'STRING',
         format => 'STRING',
-        languages    => 'ARRAY',
+        source_language        => 'STRING',
+        target_languages    => 'ARRAY',
         project_key => 'STRING',
         private_api_key => 'STRING'
     });
@@ -41,7 +42,8 @@ sub validate_data {
 
     $self->{data}->{root_directory} = subst_macros($self->{data}->{root_directory});
     $self->{data}->{push_translations} = subst_macros($self->{data}->{push_translations});
-    $self->{data}->{languages} = subst_macros($self->{data}->{languages});
+    $self->{data}->{source_language} = subst_macros($self->{data}->{source_language});
+    $self->{data}->{target_languages} = subst_macros($self->{data}->{target_languages});
     $self->{data}->{format} = subst_macros($self->{data}->{format});
     $self->{data}->{project_key} = subst_macros($self->{data}->{project_key});
     $self->{data}->{private_api_key} = subst_macros($self->{data}->{private_api_key});
@@ -51,24 +53,28 @@ sub validate_data {
     die "'format' not defined" unless defined $self->{data}->{format};
     die "'project_key' not defined" unless defined $self->{data}->{project_key};
     die "'private_api_key' not defined" unless defined $self->{data}->{private_api_key};
-    if (!exists $self->{data}->{languages} or scalar(@{$self->{data}->{languages}}) == 0) {
-        die "the list of destination languages is empty";
+
+    if (!exists $self->{data}->{target_languages} or scalar(@{$self->{data}->{target_languages}}) == 0) {
+        die "the list of destination target_languages is empty";
     }
+
+    $self->{data}->{source_language} = 'en' unless defined $self->{data}->{source_language};
 }
 
 sub pull_ts {
     my ($self, $langs) = @_;
 
-    my $langs_to_pull = $self->get_langs($langs);
+    my $langs_to_push = $self->get_all_langs($langs);
 
-    my $cli_return = 0;
+    foreach my $lang (@$langs_to_push) {
+        my $directory = catfile($self->{data}->{resource_directory}, $lang);
 
-    foreach my $lang (@$langs_to_pull) {
-        my $lang_directory = catfile($self->{data}->{root_directory}, $lang);
-        my @lang_files = $self->local_files($lang_directory);
+        my $lang_files_path = catfile($self->{data}->{root_directory}, $directory);
+        my @files = $self->find_lang_files($lang_files_path);
 
-        foreach my $file (@lang_files) {
-            $cli_return = $self->run_localize_pull($lang, $translation_file, $self->{data}->{format});
+        foreach my $file (@files) {
+            my $full_path = catfile($directory, $file);
+            my $cli_return = $self->run_localize_pull($lang, $full_path, $self->{data}->{format});
 
             if ($cli_return != 0) {
                 return $cli_return;
@@ -76,22 +82,23 @@ sub pull_ts {
         }
     }
 
-    return $cli_return;
+    return 0;
 }
 
 sub push_ts {
     my ($self, $langs) = @_;
 
-    my $langs_to_push = $self->get_langs($langs);
-
-    my $cli_return = 0;
+    my $langs_to_push = $self->get_all_langs($langs);
 
     foreach my $lang (@$langs_to_push) {
-        my $lang_directory = catfile($self->{data}->{root_directory}, $lang);
-        my @lang_files = $self->local_files($lang_directory);
+        my $directory = catfile($self->{data}->{resource_directory}, $lang);
 
-        foreach my $file (@lang_files) {
-            $cli_return = $self->run_localize_push($lang, $translation_file, $self->{data}->{format});
+        my $lang_files_path = catfile($self->{data}->{root_directory}, $directory);
+        my @files = $self->find_lang_files($lang_files_path);
+
+        foreach my $file (@files) {
+            my $full_path = catfile($directory, $file);
+            my $cli_return = $self->run_localize_push($lang, $full_path, $self->{data}->{format});
 
             if ($cli_return != 0) {
                 return $cli_return;
@@ -99,7 +106,21 @@ sub push_ts {
         }
     }
 
-    return $cli_return;
+    return 0;
+}
+
+sub get_all_langs {
+    my ($self, $langs) = @_;
+
+    if (!$langs) {
+        $langs = $self->{data}->{target_target_languages};
+    }
+
+    my @all_langs = ($self->{data}->{source_language});
+
+    push @all_langs, @$langs;
+
+    return \@all_langs;
 }
 
 sub run_localize_pull {
@@ -174,16 +195,16 @@ sub json_status {
     return '900';
 }
 
-sub local_files {
-    my ($self, $path) = @_;
+sub find_lang_files {
+    my ($self, $directory) = @_;
 
-    my @local_files = ();
+    my @files = ();
 
     find(sub {
-        push @local_files, abs2rel($File::Find::name, $path) if(-f $_);
-    }, $path);
+        push @files, abs2rel($File::Find::name, $directory) if(-f $_);
+    }, $directory);
 
-    return @local_files;
+    return @files;
 }
 
 sub parse_json {
@@ -212,7 +233,7 @@ sub get_langs {
     my ($self, $langs) = @_;
 
     if (!$langs) {
-        $langs = $self->{data}->{languages};
+        $langs = $self->{data}->{target_languages};
     }
 
     return $langs;
