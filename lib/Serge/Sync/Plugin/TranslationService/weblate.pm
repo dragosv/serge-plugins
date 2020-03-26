@@ -15,7 +15,7 @@ use Scalar::Util qw(reftype);
 use File::Path qw(make_path);
 use File::Basename;
 
-our $VERSION = qv('0.900.0');
+our $VERSION = qv('0.900.1');
 
 sub name {
     return 'Weblate translation software (https://weblate.org/) synchronization plugin';
@@ -122,6 +122,8 @@ sub translation_files {
 
     my %translations = ();
 
+    my %langs_hash = map { $_ => 1 } @$langs;
+
     foreach my $component (@components) {
         my $json_translations = $self->run_weblate_cli('--format json list-translations '.$self->{data}->{project}.'/'.$component, 1);
 
@@ -133,7 +135,7 @@ sub translation_files {
             my $filename = $translation->{filename};
             my $language_code = $translation->{language_code};
 
-            if ( $language_code ~~ @$langs ) {
+            if (exists $langs_hash{$language_code}) {
                 $translations{$self->{data}->{project}.'/'.$component.'/'.$language} = $filename;
             }
         }
