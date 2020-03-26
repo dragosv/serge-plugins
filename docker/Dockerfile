@@ -1,6 +1,6 @@
-ARG BASE_IMAGE=debian:stretch
+ARG BASE_IMAGE=debian:buster
 
-FROM debian:stretch
+FROM debian:buster
 
 ARG SERGE_TAG=1.4
 
