@@ -1,4 +1,4 @@
-FROM debian:stretch AS builder
+FROM debian:buster AS builder
 
 RUN  apt-get update \
   && apt-get install -y curl wget jq \
@@ -6,15 +6,23 @@ RUN  apt-get update \
   && cd /mojito \
   && wget $(curl -s https://api.github.com/repos/box/mojito/releases/latest | jq -r ".assets[] | select(.name | test(\"mojito-cli\")) | .browser_download_url") -O mojito-cli.jar
 
-FROM dragosvr/serge
+FROM dragosvr/serge:buster
 
 LABEL maintainers="Dragos Varovici <dvarovici.work@gmail.com>"
 LABEL git_sha1="${GIT_SHA1}"
 
-COPY . /serge
+COPY lib/Serge/Sync/Plugin/TranslationService/mojito.pm /serge/lib/Serge/Sync/Plugin/TranslationService/mojito.pm
+COPY t/plugins.t /serge/t/plugins.t
+COPY t/compile.t /serge/t/compile.t
+COPY t/lib/. /serge/t/lib
+COPY t/data/plugins/mojito/. /serge/t/data/plugins/mojito
+
 COPY --from=builder /mojito /tmp
 
-RUN apt-get -y install openjdk-8-jre \
+RUN apt-get install -y wget software-properties-common \
+    && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
+    && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
+    && apt-get update && apt-get -y install adoptopenjdk-8-hotspot \
     && mkdir /etc/mojito \
     && mkdir /etc/mojito/cli \
     && cp /tmp/mojito-cli.jar /etc/mojito/cli \

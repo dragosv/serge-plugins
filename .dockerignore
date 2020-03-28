@@ -1,0 +1,7 @@
+build-bin
+docker
+examples
+cpanfile
+LICENSE
+Makefile
+*.*
