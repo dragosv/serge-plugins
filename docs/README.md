@@ -27,9 +27,15 @@ If you want to install and use the plugins then just install it via cpanm.
 
 ```
 cpanm install Serge::Sync::Plugin::TranslationService::plugin
+```
+## Docker
+
+Alternatively docker can be used to run the plugins. 
 
 ```
-
+docker run -v /var/serge/data:/data -it dragosvr/serge-plugin command /data/configs/config1.serge
+```
+where command is a Serge command (sync, pull, push, pull-ts, push-ts, localize)
 ## Development setup
 
 If you want to develop a feature, or contribute code in some way, you need a development setup. This is done by cloning
