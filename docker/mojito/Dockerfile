@@ -19,7 +19,8 @@ COPY t/data/plugins/mojito/. /serge/t/data/plugins/mojito
 
 COPY --from=builder /mojito /tmp
 
-RUN apt-get install -y wget software-properties-common \
+RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/mojito.pm Serge::Sync::Plugin::TranslationService::mojito \
+    && apt-get install -y wget software-properties-common \
     && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
     && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
     && apt-get update && apt-get -y install adoptopenjdk-8-hotspot \

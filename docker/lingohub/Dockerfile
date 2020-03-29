@@ -9,7 +9,8 @@ COPY t/compile.t /serge/t/compile.t
 COPY t/lib/. /serge/t/lib
 COPY t/data/plugins/lingohub/. /serge/t/data/plugins/lingohub
 
-RUN apt-get -y install ruby-full \
+RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/lingohub.pm Serge::Sync::Plugin::TranslationService::lingohub \
+    && apt-get -y install ruby-full \
     && apt-get -y install build-essential bison openssl curl libgmp3-dev git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libxml2-dev autoconf libc6-dev ncurses-dev automake libtool \
     && gem install lingohub \
     && lingohub version

@@ -8,7 +8,7 @@ use strict;
 use Serge::Util qw(subst_macros);
 use version;
 
-our $VERSION = qv('0.905.2');
+our $VERSION = qv('0.905.3');
 
 sub name {
     return 'Phrase translation software (https://phrase.com) synchronization plugin';

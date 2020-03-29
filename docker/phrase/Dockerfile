@@ -19,5 +19,7 @@ COPY t/data/plugins/phrase/. /serge/t/data/plugins/phrase
 
 COPY --from=builder /phrase /tmp
 
-RUN cp /tmp/phraseapp /usr/local/bin \
+RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/phrase.pm Serge::Sync::Plugin::TranslationService::phrase \
+    && cp /tmp/phraseapp /usr/local/bin \
     && chmod +x /usr/local/bin/phraseapp
+

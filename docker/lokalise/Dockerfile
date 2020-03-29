@@ -20,6 +20,7 @@ COPY t/data/plugins/lokalise/. /serge/t/data/plugins/lokalise
 
 COPY --from=0 /lokalise /tmp
 
-RUN cp /tmp/lokalise /usr/local/bin \
+RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/lokalise.pm Serge::Sync::Plugin::TranslationService::lokalise \
+    && cp /tmp/lokalise /usr/local/bin \
     && chmod +x /usr/local/bin/lokalise \
     && lokalise --version

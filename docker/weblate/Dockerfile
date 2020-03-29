@@ -9,7 +9,8 @@ COPY t/compile.t /serge/t/compile.t
 COPY t/lib/. /serge/t/lib
 COPY t/data/plugins/weblate/. /serge/t/data/plugins/weblate
 
-RUN apt-get -y install python3-pip git \
+RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/weblate.pm Serge::Sync::Plugin::TranslationService::weblate \
+    && apt-get -y install python3-pip git \
     && cd /tmp \
     && git clone https://github.com/WeblateOrg/wlc.git \
     && pip3 install -e /tmp/wlc \

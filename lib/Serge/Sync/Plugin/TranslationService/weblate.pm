@@ -14,7 +14,7 @@ use Scalar::Util qw(reftype);
 use File::Path qw(make_path);
 use File::Basename;
 
-our $VERSION = qv('0.900.5');
+our $VERSION = qv('0.900.6');
 
 sub name {
     return 'Weblate translation software (https://weblate.org/) synchronization plugin';

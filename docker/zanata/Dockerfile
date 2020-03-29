@@ -9,7 +9,8 @@ COPY t/compile.t /serge/t/compile.t
 COPY t/lib/. /serge/t/lib
 COPY t/data/plugins/zanata/. /serge/t/data/plugins/zanata
     
-RUN apt-get install -y wget software-properties-common maven unzip\
+RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/zanata.pm Serge::Sync::Plugin::TranslationService::zanata \
+    && apt-get install -y wget software-properties-common maven unzip\
     && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
     && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
     && apt-get update && apt-get -y install adoptopenjdk-8-hotspot \

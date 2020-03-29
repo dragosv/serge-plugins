@@ -9,7 +9,8 @@ COPY t/compile.t /serge/t/compile.t
 COPY t/lib/. /serge/t/lib
 COPY t/data/plugins/locize/. /serge/t/data/plugins/locize
 
-RUN apt-get -y install curl software-properties-common aptitude\
+RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/locize.pm Serge::Sync::Plugin::TranslationService::locize \
+    && apt-get -y install curl software-properties-common aptitude\
     && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-get install -y nodejs \
     && aptitude install -y npm \
