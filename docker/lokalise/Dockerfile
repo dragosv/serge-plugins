@@ -4,8 +4,8 @@ RUN  apt-get update \
   && apt-get install -y wget \
   && mkdir /lokalise \
   && cd /lokalise \
-  && wget https://s3-eu-west-1.amazonaws.com/lokalise-assets/cli/lokalise-0.721-linux-amd64.tgz -O lokalise.tgz \
-  && tar zxvf lokalise.tgz
+  && wget https://github.com/lokalise/lokalise-cli-2-go/releases/latest/download/lokalise2_linux_x86_64.tar.gz -O lokalise2.tgz \
+  && tar zxvf lokalise2.tgz
 
 FROM dragosvr/serge:buster
 
@@ -21,6 +21,6 @@ COPY t/data/plugins/lokalise/. /serge/t/data/plugins/lokalise
 COPY --from=0 /lokalise /tmp
 
 RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/lokalise.pm Serge::Sync::Plugin::TranslationService::lokalise \
-    && cp /tmp/lokalise /usr/local/bin \
-    && chmod +x /usr/local/bin/lokalise \
-    && lokalise --version
+    && cp /tmp/lokalise2 /usr/local/bin \
+    && chmod +x /usr/local/bin/lokalise2 \
+    && lokalise2 --version
