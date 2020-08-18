@@ -1,0 +1,12 @@
+sync
+{
+    ts
+    {
+        plugin                      delta
+
+        data
+        {
+            config_file              ./files/config/not-found.yml
+        }
+    }
+}

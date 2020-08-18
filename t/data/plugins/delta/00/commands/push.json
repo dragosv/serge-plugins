@@ -1,0 +1,6 @@
+[
+   {
+      "env" : {},
+      "command" : "delta push --config=./files/config/serge_test.yml"
+   }
+]

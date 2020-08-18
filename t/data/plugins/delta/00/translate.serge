@@ -1,0 +1,12 @@
+sync
+{
+    ts
+    {
+        plugin                      delta
+
+        data
+        {
+            config_file              ./files/config/serge_test.yml
+        }
+    }
+}

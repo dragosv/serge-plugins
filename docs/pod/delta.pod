@@ -1,0 +1,47 @@
+=encoding utf8
+
+=head1 NAME
+
+Serge::Sync::Plugin::TranslationService::delta - L<Delta|https://github.com/dragosv/delta> synchronization plugin for L<Serge|https://serge.io/> based on L<Delta CLI|https://github.com/dragosv/delta>
+
+=head1 SYNOPSIS
+
+    ts
+    {
+        plugin                      crowdin
+
+        data
+        {
+            config_file              ./files/config/delta_config_file.yml
+        }
+    }
+
+=head1 DESCRIPTION
+
+Integration between Serge (Free, Open Source Solution for Continuous Localization) and Delta (Pluggable Command Line Interface for job-based Translation Management Services),
+implemented using the command-line client for the Delta.
+
+=head1 ATTRIBUTES
+
+=over
+
+=item I<config_file>
+
+Delta CLI path to the configuration file
+
+=back
+
+=head1 INSTALLATION
+
+ cpanm Serge::Sync::Plugin::TranslationService::delta
+
+=head1 AUTHOR
+
+Dragos Varovici <dvarovici.work@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2018-2020 by Dragos Varovici.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.

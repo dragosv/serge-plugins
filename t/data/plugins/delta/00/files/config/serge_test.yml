@@ -1,0 +1,11 @@
+
+"source" : "/delta/source"
+"destination" : "/delta/destination"
+"dialect" : "sqlite3"
+"connection" : "delta/config/db.sqlite3"
+"plugin" : "test"
+"plugin-config" : "delta/config/test.config"
+"language" : "en"
+"pattern" : "([a-z]{2})\.xliff"
+
+
