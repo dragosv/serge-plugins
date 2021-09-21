@@ -4,7 +4,7 @@ RUN  apt-get update \
   && apt-get install -y curl wget jq \
   && mkdir /phrase \
   && cd /phrase \
-  && wget $(curl -s https://api.github.com/repos/phrase/phraseapp-client/releases/latest | jq -r ".assets[] | select(.name | test(\"linux_amd64\")) | .browser_download_url") -O phraseapp
+  && wget $(curl -s https://api.github.com/repos/phrase/phrase-cli/releases/latest | jq -r ".assets[] | select(.name | test(\"phrase_linux_amd64\")) | .browser_download_url") -O phrase
 
 FROM dragosvr/serge:buster
 
@@ -20,6 +20,6 @@ COPY t/data/plugins/phrase/. /serge/t/data/plugins/phrase
 COPY --from=builder /phrase /tmp
 
 RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/phrase.pm Serge::Sync::Plugin::TranslationService::phrase \
-    && cp /tmp/phraseapp /usr/local/bin \
-    && chmod +x /usr/local/bin/phraseapp
+    && cp /tmp/phrase /usr/local/bin \
+    && chmod +x /usr/local/bin/phrase
 
