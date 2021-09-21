@@ -1,7 +1,7 @@
 [Serge](https://serge.io/) Plugins
 ============
 
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Build Status](https://img.shields.io/travis/dragosv/serge-plugins/master.svg?label=linux+build)](https://travis-ci.org/dragosv/serge-plugins)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Build Status](https://img.shields.io/travis/com/dragosv/serge-plugins/master.svg?label=linux+build)](https://https://app.travis-ci.com/github/dragosv/serge-plugins)
 [![Build status](https://ci.appveyor.com/api/projects/status/tb6j1owidqvdfx90/branch/master?svg=true&passingText=windows%20build%20passing&failingText=windows%20build%20failing&pendingText=windows%20build%20pending)](https://ci.appveyor.com/project/dragosv/serge-plugins/branch/master) [![codecov](https://codecov.io/gh/dragosv/serge-plugins/branch/master/graph/badge.svg)](https://codecov.io/gh/dragosv/serge-plugins)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=shields)](http://makeapullrequest.com)
 [![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License: Perl](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://dev.perl.org/licenses/)
