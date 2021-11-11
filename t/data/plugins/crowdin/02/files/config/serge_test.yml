@@ -1,6 +1,6 @@
 
-"project_identifier" : "serge_test"
-"api_key" : "1234567890abcdefghklmnoprstuvxwy"
+"project_id" : "1"
+"api_token" : "1234567890abcdefghklmnoprstuvxwy"
 "base_path" : "./files/resources"
 
 "preserve_hierarchy": false
