@@ -2,7 +2,8 @@
 ============
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Build Status](https://img.shields.io/travis/com/dragosv/serge-plugins/master.svg?label=linux+build)](https://https://app.travis-ci.com/github/dragosv/serge-plugins)
-[![Build status](https://ci.appveyor.com/api/projects/status/tb6j1owidqvdfx90/branch/master?svg=true&passingText=windows%20build%20passing&failingText=windows%20build%20failing&pendingText=windows%20build%20pending)](https://ci.appveyor.com/project/dragosv/serge-plugins/branch/master) [![codecov](https://codecov.io/gh/dragosv/serge-plugins/branch/master/graph/badge.svg)](https://codecov.io/gh/dragosv/serge-plugins)
+[![Build status](https://github.com/dragosv/serge-plugins/actions/workflows/main.yml/badge.svg)](https://github.com/dragosv/serge-plugins/actions/workflows/main.yml)
+[![codecov](https://codecov.io/gh/dragosv/serge-plugins/branch/master/graph/badge.svg)](https://codecov.io/gh/dragosv/serge-plugins)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=shields)](http://makeapullrequest.com)
 [![Join the chat at https://gitter.im/serge-plugins/Lobby](https://badges.gitter.im/serge-plugins/Lobby.svg)](https://gitter.im/serge-plugins/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![License: Perl](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://dev.perl.org/licenses/)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdragosv%2Fserge-plugins?ref=badge_shield)
@@ -55,10 +56,10 @@ cpanm install Carton
 carton install
 ```
 
-Once the development environment is set-up, in order to run the tests, make should be used
+Once the development environment is set up, in order to run the tests, make should be used
 
 ```
-make test
+carton exec make test
 ```
 
 ## Organization
@@ -76,7 +77,7 @@ If you add a dependency, just add it to the cpanfile file. There are three secti
  - the test section is for dependencies needed to run the test suite
  - the develop section is for dependencies needed for developers
 
-carton install installs all dependencies in all sections (after all, we're in developer mode here) 
+carton install will install all dependencies in all sections (after all, we're in developer mode here) 
 
 ## Packaging
 

@@ -1,0 +1,58 @@
+on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request.
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+name: Build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        perl: [ '5.34', '5.32', '5.30', '5.28', '5.26' ]
+    container:
+      image: perl:${{ matrix.perl }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          # Install using cpanm
+          cpanm --installdeps --with-develop --force .
+
+      - name: Configure code coverage
+        if: matrix.perl == '5.34'
+        run: |
+          # Code coverage setup
+          cover -delete
+          perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
+          perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
+
+      - name: Run build script
+        run: |
+          # Build
+          perl build-bin/dzil-plugins.pl -c build
+
+      - name: Run tests
+        run: |
+          # Tests
+          perl build-bin/dzil-plugins.pl -c test
+
+      - name: Generate code coverage report
+        if: matrix.perl == '5.34'
+        run: |
+          # Code coverage
+          cover -report codecovbash
+
+      - uses: codecov/codecov-action@v2
+        if: matrix.perl == '5.34'
+        with:
+          files: ./cover_db/codecov.json
+          fail_ci_if_error: true
+          verbose: true
