@@ -15,6 +15,6 @@ RUN cpan -j /serge/lib/Serge/Sync/Plugin/TranslationService/crowdin.pm Serge::Sy
     && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
     && apt-get update && apt-get -y install adoptopenjdk-8-hotspot \
     && cd /tmp \
-    && wget https://artifacts.crowdin.com/repo/deb/crowdin.deb -O crowdin.deb \
+    && wget https://artifacts.crowdin.com/repo/deb/crowdin3.deb -O crowdin.deb \
     && dpkg -i crowdin.deb \
     && crowdin --version
