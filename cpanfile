@@ -31,6 +31,6 @@ on 'test' => sub {
   requires 'Test::Warnings';
   requires 'Class::Unload';
   requires 'Devel::Cover';
-  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
   requires 'Clone';
 };

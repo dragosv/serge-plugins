@@ -1,10 +1,10 @@
 test:
-	carton exec build-bin/dzil-plugins.pl -c test
+	perl build-bin/dzil-plugins.pl -c test
 
 build:
-	carton exec build-bin/dzil-plugins.pl -c build
+	perl build-bin/dzil-plugins.pl -c build
 
 release:
-	carton exec build-bin/github-release.pl \
-	carton exec build-bin/dzil-plugins.pl -c release
+	perl build-bin/github-release.pl \
+	perl build-bin/dzil-plugins.pl -c release
 

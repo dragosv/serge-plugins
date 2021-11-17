@@ -1,40 +1,24 @@
 skip_tags: true
 
-image: Visual Studio 2017
+image:
+  - Visual Studio 2019
 platform: x64
 
 environment:
   matrix:
-  - version: 5.32.1.1
-  - version: 5.30.3.1
-  - version: 5.28.2.1
-  - version: 5.26.3.1
-  - version: 5.24.4.1
-  - version: 5.22.3.1
+  - PERL_VERSION: 5.32.1.1
+  - PERL_VERSION: 5.30.3.1
+  - PERL_VERSION: 5.28.2.1
+  - PERL_VERSION: 5.26.3.1
 
 cache:
   - C:\strawberry
 
 install:
-  - cmd: if not exist "C:\strawberry" choco install strawberryperl --version %version%
-  - cmd: set PATH=C:\strawberry\perl\bin;C:\strawberry\perl\site\bin;C:\strawberry\c\bin;%PATH%
-  - cmd: cd C:\projects\%APPVEYOR_PROJECT_NAME%
-  - cmd: perl -v
-  - cmd: cpanm install Carton
-  - cmd: carton install --path C:\strawberry\carton
-  - cmd: set PATH=C:\strawberry\carton\bin;%PATH%
-  - cmd: set PERL5LIB=C:\strawberry\carton\lib\perl5
+  - ps: ./build/install.ps1
 
 build_script:
-  - cmd: perl build-bin/dzil-plugins.pl -c build
-
-before_test:
-  - cmd: cover -delete
+  - ps: ./build/build.ps1
 
 test_script:
-  - cmd: perl -MDevel::Cover=+ignore,^local/,^t/ t/compile.t
-  - cmd: perl -MDevel::Cover=+ignore,^local/,^t/ t/plugins.t
-  - cmd: perl build-bin/dzil-plugins.pl -c test
-
-after_test:
-  - cmd: cover -report codecov
+  - ps: ./build/test.ps1
