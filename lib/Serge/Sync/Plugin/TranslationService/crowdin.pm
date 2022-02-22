@@ -19,7 +19,7 @@ sub init {
 
     $self->SUPER::init(@_);
 
-    $self->{optimizations} = 1; 
+    $self->{optimizations} = 1;
 
     $self->merge_schema({
         config_file => 'STRING',
@@ -27,6 +27,8 @@ sub init {
         import_duplicates => 'BOOLEAN',
         import_eq_suggestions => 'BOOLEAN',
         auto_approve_imported => 'BOOLEAN',
+        backoff_max_attempts => 'STRING',
+        backoff_exp_base => 'STRING',
     });
 }
 
@@ -40,6 +42,8 @@ sub validate_data {
     $self->{data}->{import_duplicates} = subst_macros($self->{data}->{import_duplicates});
     $self->{data}->{import_eq_suggestions} = subst_macros($self->{data}->{import_eq_suggestions});
     $self->{data}->{auto_approve_imported} = subst_macros($self->{data}->{auto_approve_imported});
+    $self->{data}->{backoff_max_attempts} = subst_macros($self->{data}->{backoff_max_attempts});
+    $self->{data}->{backoff_exp_base} = subst_macros($self->{data}->{backoff_exp_base});
 
     die "'config_file' not defined" unless defined $self->{data}->{config_file};
     die "'config_file', which is set to '$self->{data}->{config_file}', does not point to a valid file.\n" unless -f $self->{data}->{config_file};
@@ -48,6 +52,8 @@ sub validate_data {
     $self->{data}->{import_duplicates} = 0 unless defined $self->{data}->{import_duplicates};
     $self->{data}->{import_eq_suggestions} = 0 unless defined $self->{data}->{import_eq_suggestions};
     $self->{data}->{auto_approve_imported} = 0 unless defined $self->{data}->{auto_approve_imported};
+    $self->{data}->{backoff_max_attempts} = 3 unless defined $self->{data}->{backoff_max_attempts};
+    $self->{data}->{backoff_exp_base} = 8 unless defined $self->{data}->{backoff_exp_base};
 }
 
 sub run_crowdin_cli {
@@ -65,8 +71,30 @@ sub run_crowdin_cli {
     $command .= ' --config '.$self->{data}->{config_file};
 
     $command = 'crowdin '.$command;
-    print "Running '$command'...\n";
-    return $self->run_cmd($command, $capture);
+
+    my $cli_return;
+    for (
+        my $attempt = 1;
+        $attempt <= $self->{data}->{backoff_max_attempts} &&
+            !eval {
+                print "Running '$command'...\n";
+                $cli_return = $self->run_cmd($command, $capture);
+                return 1;
+            };
+        $attempt++
+    ) {
+        my $message = "Failed to call Crowdin CLI on attempt $attempt: $@\n";
+        if ($attempt >= $self->{data}->{backoff_max_attempts}) {
+            die $message;
+        } else {
+            print "Error. $message";
+            my $sleep = $self->{data}->{backoff_exp_base} ** $attempt;
+            print "Sleep for $sleep seconds\n";
+            sleep $sleep;
+        }
+    }
+
+    return $cli_return;
 }
 
 sub pull_ts {
