@@ -1,0 +1,229 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "git@2.51": {
+      "last_modified": "2025-11-23T21:50:36Z",
+      "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#git",
+      "source": "devbox-search",
+      "version": "2.51.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/x34bh6s6ighg7lb74nkjbx3nx52zj0j9-git-2.51.2",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/6wnscv0364r6430qmx33nn927dlw2vnf-git-2.51.2-doc"
+            }
+          ],
+          "store_path": "/nix/store/x34bh6s6ighg7lb74nkjbx3nx52zj0j9-git-2.51.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gzdcfmx2p9nvd4z21b6ns00cp4sv1d2h-git-2.51.2",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/5l5ln59lpi4qv2qm59aqchlz32j9zcm9-git-2.51.2-debug"
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/w28mqxb1bd51f5rwh5127pvbp31lnqmv-git-2.51.2-doc"
+            }
+          ],
+          "store_path": "/nix/store/gzdcfmx2p9nvd4z21b6ns00cp4sv1d2h-git-2.51.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zz5xiyzpnn06cdgw1xnlvs1sbly5247r-git-2.51.2",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/vrisnm56c5v8mzbv55yrq28wgkvga8nm-git-2.51.2-doc"
+            }
+          ],
+          "store_path": "/nix/store/zz5xiyzpnn06cdgw1xnlvs1sbly5247r-git-2.51.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/4qhdhmi7pzgad0zfd7c5lsg235mbf9hv-git-2.51.2",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/pjr2vd588sxa47glfg0ky0df3vk79dcs-git-2.51.2-debug"
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/9k6ivrdddy9s3z1hiwgavl0kfr2czgav-git-2.51.2-doc"
+            }
+          ],
+          "store_path": "/nix/store/4qhdhmi7pzgad0zfd7c5lsg235mbf9hv-git-2.51.2"
+        }
+      }
+    },
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2026-02-02T23:09:17Z",
+      "resolved": "github:NixOS/nixpkgs/47472570b1e607482890801aeaf29bfb749884f6?lastModified=1770073757"
+    },
+    "perl540Packages.Appcpanminus@latest": {
+      "last_modified": "2025-11-23T21:50:36Z",
+      "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#perl540Packages.Appcpanminus",
+      "source": "devbox-search",
+      "version": "1.7047",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/y1bm096cwsz5g453kj2gxxni14injjnq-perl5.40.0-App-cpanminus-1.7047",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/5dpq3nwhwawkl5p3add4ak4za3yri98a-perl5.40.0-App-cpanminus-1.7047-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/y1bm096cwsz5g453kj2gxxni14injjnq-perl5.40.0-App-cpanminus-1.7047"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pf96037777lsjyvs7dk36p7klgbdjk6w-perl5.40.0-App-cpanminus-1.7047",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/iz0bf6y2871jrrqd19hikagcdn515h8v-perl5.40.0-App-cpanminus-1.7047-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/pf96037777lsjyvs7dk36p7klgbdjk6w-perl5.40.0-App-cpanminus-1.7047"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jzwhhvf33cgh7ahqvkdxir1zfkd6p1wf-perl5.40.0-App-cpanminus-1.7047",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/8vsyhyllqhwliscr7wn04gxjjllwwa4j-perl5.40.0-App-cpanminus-1.7047-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/jzwhhvf33cgh7ahqvkdxir1zfkd6p1wf-perl5.40.0-App-cpanminus-1.7047"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/z5cs1lira3cdjqy8g9w98qsb5pihzl5k-perl5.40.0-App-cpanminus-1.7047",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/14576y69bhaxijrpjhn1b9b3wkwvv5lp-perl5.40.0-App-cpanminus-1.7047-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/z5cs1lira3cdjqy8g9w98qsb5pihzl5k-perl5.40.0-App-cpanminus-1.7047"
+        }
+      }
+    },
+    "perl@5.40": {
+      "last_modified": "2025-11-23T21:50:36Z",
+      "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#perl",
+      "source": "devbox-search",
+      "version": "5.40.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2ybi6a47ihwxrzncgp82gify4hzgcfaj-perl-5.40.0",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/x9brkkby1yf9b23b20ylp783ip868dfj-perl-5.40.0-man",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/cdw5c722fxkbwr4ivc9nlaabf3hadwxh-perl-5.40.0-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/2ybi6a47ihwxrzncgp82gify4hzgcfaj-perl-5.40.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zrl1jx5k8jsmp8ry4g8vn010mnkd0h1i-perl-5.40.0",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/55jj4fcii733b2jx6lnmazw2hn5mwc4d-perl-5.40.0-man",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/glacs48awsdjnpafi7hzyalpisrp6cq2-perl-5.40.0-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/zrl1jx5k8jsmp8ry4g8vn010mnkd0h1i-perl-5.40.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vqdn6lpi2vkafva0w6p7jj2sp58fykm9-perl-5.40.0",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/45r0jcidkxbngcg4n2a48lm2lq6a5ibx-perl-5.40.0-man",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/9ppzw6y0lw8j1wgdh0bb2hqdp8gmfv4g-perl-5.40.0-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/vqdn6lpi2vkafva0w6p7jj2sp58fykm9-perl-5.40.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/h2jsb5i4yfblr2f3ac2c7zpmlmj7zjym-perl-5.40.0",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/0g1mha3mrqspxvxgag3fij2w2jk4m35i-perl-5.40.0-man",
+              "default": true
+            },
+            {
+              "name": "devdoc",
+              "path": "/nix/store/fdi8nchdygzpkawxysy4m5mcfjjzjwzf-perl-5.40.0-devdoc"
+            }
+          ],
+          "store_path": "/nix/store/h2jsb5i4yfblr2f3ac2c7zpmlmj7zjym-perl-5.40.0"
+        }
+      }
+    }
+  }
+}

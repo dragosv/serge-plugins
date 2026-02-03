@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "packages": [
+    "perl@5.40",
+    "git@2.51",
+    "perl540Packages.Appcpanminus@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)",
+      "cpanm --installdeps --with-develop --force ."
+    ],
+    "scripts": {
+      "build": [
+        "perl build-bin/dzil-plugins.pl -c build"
+      ],
+
+      "test": [
+        "perl build-bin/dzil-plugins.pl -c test"
+      ]
+    }
+  }
+}
