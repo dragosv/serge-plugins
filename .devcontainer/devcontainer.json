@@ -1,0 +1,9 @@
+{
+    // use whatever Debian/Ubuntu/Alpine base image you like here:
+    "image": "perl:5.40-bookworm",
+    "features": {
+        "ghcr.io/haukex/devcontainer-features/perl:1": {}
+    },
+    // optional depending on your project:
+    "postCreateCommand": "cpanm --installdeps --with-develop --force ."
+}
